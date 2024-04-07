@@ -1,8 +1,8 @@
 import React from 'react'
 import { Text } from 'react-native'
 
-export const SignUp = () => {
+export const Services = () => {
     return (
-        <Text>jejejejej</Text>
+        <Text>services</Text>
     )
 }

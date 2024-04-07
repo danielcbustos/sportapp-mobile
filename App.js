@@ -1,8 +1,11 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
-import { Main } from "./src/components/Main";
-import { useFonts } from "expo-font";
+import { Main } from "./src/Main";
+import { Provider } from "react-redux";
+import { store } from "./store/store";
 
 export default function App() {
-  return <Main />;
+  return (
+    <Provider store={store}>
+      <Main />
+    </Provider>
+  );
 }
