@@ -39,7 +39,7 @@ export const Login = ({ navigation }) => {
     useEffect(() => {
         if (userLogged) {
             setformValues(initialValuesObject);
-            navigation.navigate('EventAvailability');
+            navigation.navigate('UserHome');
         }
     }, [userLogged]);
 
@@ -50,6 +50,7 @@ export const Login = ({ navigation }) => {
             onSubmit={values => { console.log(values); submitLogin(values); }}
             validateOnChange={true}
             validateOnBlur={true}
+
         >
 
             {({ handleChange, handleBlur, handleSubmit, errors, touched, values, isValid, }) => (

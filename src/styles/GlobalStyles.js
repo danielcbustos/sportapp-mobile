@@ -11,6 +11,7 @@ export const GlobalStyles = StyleSheet.create({
     paddingTop: 60,
     paddingLeft: 35,
     paddingRight: 35,
+    paddingBottom: 10,
   },
   btnLarge1: {
     backgroundColor: "#EA9354",
@@ -34,9 +35,8 @@ export const GlobalStyles = StyleSheet.create({
   },
   card: {
     justifyContent: "center",
-    marginTop: 6,
-    backgroundColor: "#fff",
 
+    backgroundColor: "#fff",
     width: 320,
   },
 
@@ -44,5 +44,8 @@ export const GlobalStyles = StyleSheet.create({
     alignSelf: "center",
     fontWeight: "bold",
     fontSize: 20,
+  },
+  cardCover: {
+    height: 135,
   },
 });
