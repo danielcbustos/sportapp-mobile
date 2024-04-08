@@ -6,15 +6,12 @@ import { CalendarComp } from '../../components/CalendarComp';
 import { Button } from "react-native-paper";
 import { useState } from 'react';
 
-import { useSelector } from 'react-redux';
-import { selectUserId, selectUserName } from '../helpers/userSelectors';
-import { useSportEvents } from '../hooks/useSportsEvents';
+
 
 export const EventAvailability = ({ navigation }) => {
 
     const [selectedDate, setSelectedDate] = useState('');
     const [isButtonClicked, setIsButtonClicked] = useState(false);
-    const { eventsByUser, loadEvents, errorInEvents, getEvents } = useSportEvents('');
 
     const handleDateSelect = (date) => {
         setSelectedDate(date); // Actualizar el estado de la fecha seleccionada

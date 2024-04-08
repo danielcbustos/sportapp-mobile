@@ -10,6 +10,7 @@ import { useSportEvents, useSportsEvents } from '../hooks/useSportsEvents';
 import { Text as CardText } from 'react-native-paper';
 import { Card } from 'react-native-paper';
 import Spinner from 'react-native-loading-spinner-overlay';
+import { Spineer } from '../../utils/Spineer';
 
 
 export const SportsEvents = ({ navigation, route }) => {
@@ -53,11 +54,7 @@ export const SportsEvents = ({ navigation, route }) => {
             <Text style={GlobalStyles.smLetters}>Selecciona el evento deportivo en el que {'\n'}deseas participar el día</Text>
             <Text style={styles.negrilla}>{eventDate}</Text>
 
-            <Spinner
-                visible={isLoading}
-                textContent={'Cargando...'}
-                textStyle={{ color: '#FFF' }}
-            />
+            <Spineer isLoading={isLoading} />
             {!isLoading && eventsByUser.length === 0 && (
                 <View style={styles.aviso}>
                     <Text style={styles.avisoTexto}>No hay eventos deportivos</Text>
@@ -67,7 +64,7 @@ export const SportsEvents = ({ navigation, route }) => {
             {!isLoading && (
                 <ScrollView>
                     {eventsByUser.map(item => (
-                        <TouchableOpacity onPress={() => navigation.navigate('EventDetail', { eventDetails: item, eventDate })} >
+                        <TouchableOpacity key={item.id} onPress={() => navigation.navigate('EventDetail', { eventDetails: item, eventDate })} >
                             <Card style={GlobalStyles.card}>
                                 <Card.Content>
                                     <CardText style={GlobalStyles.cardText} variant="bodyMedium">{item.name}</CardText>
@@ -118,11 +115,6 @@ const styles = StyleSheet.create({
         fontWeight: "600",
         color: '#000000',
     }
-
-
-
-
-
 
 
 });

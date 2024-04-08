@@ -11,6 +11,7 @@ import { EventAvailability } from './user/pages/EventAvailability';
 import { AlertNotificationRoot } from "react-native-alert-notification";
 import { useDispatch, useSelector } from "react-redux";
 import { EventDetail } from './user/pages/EventDetail';
+import { UserReservations } from './user/pages/UserReservations';
 const Stack = createNativeStackNavigator();
 
 
@@ -27,6 +28,7 @@ export const Main = () => {
                     <Stack.Screen name="EventAvailability" component={EventAvailability} options={{ headerShown: false }} />
                     <Stack.Screen name="SportsEvents" component={SportsEvents} options={{ headerShown: false }} />
                     <Stack.Screen name="EventDetail" component={EventDetail} options={{ headerShown: false }} />
+                    <Stack.Screen name="UserReservations" component={UserReservations} options={{ headerShown: false }} />
                 </Stack.Navigator>
             </NavigationContainer>
         </AlertNotificationRoot>

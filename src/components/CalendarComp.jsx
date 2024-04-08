@@ -32,7 +32,7 @@ export const CalendarComp = ({ onDateSelect }) => {
         <Calendar
             onDayPress={day => {
                 setSelected(day.dateString);
-                onDateSelect(day.dateString); // Llamar a la función de devolución de llamada con la fecha seleccionada
+                onDateSelect(day.dateString);
             }}
             markedDates={{
                 [selected]: { selected: true, disableTouchEvent: true, selectedDotColor: 'red' }

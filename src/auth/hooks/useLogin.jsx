@@ -3,10 +3,7 @@ import axios from "axios";
 import { API_URL_USER } from "@env";
 import { Alert } from "react-native";
 import { AlertNotification } from "../../utils/AlertNotification";
-import { AsyncStorage } from "@react-native-async-storage/async-storage"
 import { useDispatch } from "react-redux";
-
-
 import { setUserState } from "../../../store/sessionUser/sessionUserSlice";
 
 

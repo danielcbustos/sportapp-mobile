@@ -5,7 +5,7 @@ export const GlobalStyles = StyleSheet.create({
     backgroundColor: "#fff",
     flex: 1,
     width: "100%",
-    height: 932,
+    height: 843,
     overflow: "hidden",
     alignItems: "center",
     paddingTop: 60,

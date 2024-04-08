@@ -48,6 +48,7 @@ export const EventDetail = ({ navigation, route }) => {
                 style={styles.btnLarge}
                 labelStyle={GlobalStyles.btnLayerStyle}
                 contentStyle={GlobalStyles.btnLarge1}
+                onPress={() => navigation.navigate('UserReservations')}
             >
                 Reservar
             </Button>
@@ -58,7 +59,7 @@ export const EventDetail = ({ navigation, route }) => {
 const styles = StyleSheet.create({
 
     btnLarge: {
-        marginTop: 60
+        marginTop: 40
     },
     iconEvent: {
 
@@ -82,13 +83,13 @@ const styles = StyleSheet.create({
         fontSize: 24,
         fontWeight: "600",
         color: '#000000',
-        marginTop: 20
+        marginTop: 30
     },
     descripcion: {
         fontSize: 20,
         fontWeight: "600",
         color: '#000000',
-        marginTop: 15
+        marginTop: 20
     },
 
 

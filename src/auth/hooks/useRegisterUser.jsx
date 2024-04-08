@@ -33,7 +33,7 @@ const useRegisterUser = (initial) => {
 
       setLoading(false);
     } finally {
-      setLoading(false); // Ensure loading state is updated even on errors
+      setLoading(false);
     }
 
   };
