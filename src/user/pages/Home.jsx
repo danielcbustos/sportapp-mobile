@@ -8,7 +8,7 @@ import { GlobalStyles } from '../../styles/GlobalStyles';
 export const Home = ({ navigation }) => {
 
     return (
-        <View style={[GlobalStyles.sportApp, GlobalStyles.container]}>
+        <View style={GlobalStyles.sportApp}>
             <ImageBackground
                 style={styles.image1Icon}
                 resizeMode="cover"

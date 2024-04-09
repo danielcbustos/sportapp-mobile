@@ -54,7 +54,7 @@ export const SignUp = ({ navigation }) => {
 
     return (
 
-        <ScrollView>
+        <ScrollView contentContainerStyle={styles.scrollViewContent}>
             <Formik
                 initialValues={formValues || initialValuesObject}
                 validationSchema={registerValidationSchema}
@@ -63,12 +63,16 @@ export const SignUp = ({ navigation }) => {
                 validateOnBlur={true}
             >
                 {({ handleChange, handleBlur, handleSubmit, errors, touched, values, isValid, }) => (
-                    <View style={[GlobalStyles.sportApp, GlobalStyles.container]}>
+
+                    <View style={GlobalStyles.sportApp}>
                         <View style={{ flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', width: '100%' }}>
                             <TouchableOpacity onPress={() => navigation.goBack()} >
                                 <Icon name="arrow-left" style={styles.icon} />
                             </TouchableOpacity>
                         </View>
+
+
+
                         <Text style={styles.registro}>Registro</Text>
                         <Input
 
@@ -145,10 +149,13 @@ export const SignUp = ({ navigation }) => {
 
 
                     </View>
-                )}
-            </Formik>
 
-        </ScrollView>
+                )
+                }
+            </Formik >
+        </ScrollView >
+
+
 
     )
 }
@@ -172,7 +179,10 @@ const styles = StyleSheet.create({
 
     inputText: {
         marginBottom: 4
-    }
+    },
+    scrollViewContent: {
+        flexGrow: 1,
+    },
 
 
 });

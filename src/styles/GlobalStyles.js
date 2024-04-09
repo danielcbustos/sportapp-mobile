@@ -1,11 +1,15 @@
 import { StyleSheet } from "react-native";
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from "react-native-responsive-screen";
 
 export const GlobalStyles = StyleSheet.create({
   sportApp: {
     backgroundColor: "#fff",
     flex: 1,
-    width: "100%",
-    height: 843,
+    width: wp("100%"),
+    height: hp("100%"),
     overflow: "hidden",
     alignItems: "center",
     paddingTop: 60,
@@ -23,9 +27,7 @@ export const GlobalStyles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "700",
   },
-  container: {
-    alignItems: "center",
-  },
+
   smLetters: {
     color: "#000000",
     fontSize: 14,
@@ -37,7 +39,7 @@ export const GlobalStyles = StyleSheet.create({
     justifyContent: "center",
 
     backgroundColor: "#fff",
-    width: 320,
+    width: wp("75%"),
   },
 
   cardText: {
@@ -46,6 +48,7 @@ export const GlobalStyles = StyleSheet.create({
     fontSize: 20,
   },
   cardCover: {
-    height: 135,
+    height: hp("16%"),
+    resizeMode: "stretch",
   },
 });

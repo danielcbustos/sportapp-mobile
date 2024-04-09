@@ -45,7 +45,7 @@ export const Login = ({ navigation }) => {
     }, [userLogged]);
 
     return (
-        <ScrollView>
+        <ScrollView contentContainerStyle={styles.scrollViewContent}>
             <Formik
                 initialValues={formValues || initialValuesObject}
                 validationSchema={loginValidationSchema}
@@ -182,6 +182,9 @@ const styles = StyleSheet.create({
     icon: {
         fontSize: 42,
         color: '#EA9354',
+    },
+    scrollViewContent: {
+        flexGrow: 1,
     },
 
 

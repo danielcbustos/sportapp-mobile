@@ -44,7 +44,7 @@ export const SportsEvents = ({ navigation, route }) => {
 
     return (
 
-        <View style={[GlobalStyles.sportApp, GlobalStyles.container]}>
+        <View style={GlobalStyles.sportApp}>
             <View style={{ flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', width: '100%' }}>
                 <TouchableOpacity onPress={() => navigation.goBack()} >
                     <Icon name="arrow-left" style={styles.icon} />
