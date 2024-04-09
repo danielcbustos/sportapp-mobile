@@ -2,15 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { Button, StyleSheet, Text, TouchableOpacity, View, FlatList, ScrollView, ImageBackground } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { GlobalStyles } from '../../styles/GlobalStyles';
-import { ALERT_TYPE, Dialog, Toast } from 'react-native-alert-notification';
 import { useSelector } from 'react-redux';
 import { selectUserId, selectUserName } from '../helpers/userSelectors';
 import { useSportEvents, useSportsEvents } from '../hooks/useSportsEvents';
-// import eventsByUser from '../helpers/eventsByUser';
 import { Text as CardText } from 'react-native-paper';
 import { Card } from 'react-native-paper';
-import Spinner from 'react-native-loading-spinner-overlay';
 import { Spineer } from '../../utils/Spineer';
+import { AlertNotification } from '../../utils/AlertNotification';
 
 
 export const SportsEvents = ({ navigation, route }) => {
@@ -18,6 +16,7 @@ export const SportsEvents = ({ navigation, route }) => {
     const { selectedDate, formattedDate } = route.params;
     const { eventsByUser, loadEvents, errorInEvents, getEvents } = useSportEvents(userId);
     const [isLoading, setIsLoading] = useState(true);
+    const { showDialogError } = AlertNotification();
 
     const formattedDateTwo = (dateString) => {
         const options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -37,6 +36,12 @@ export const SportsEvents = ({ navigation, route }) => {
     useEffect(() => {
         if (!loadEvents) {
             setIsLoading(false);
+            if (eventsByUser.length === 0) {
+                showDialogError(
+                    '¡Aviso importante!',
+                    'No hay eventos deportivos disponibles para este día.'
+                );
+            }
         }
     }, [loadEvents]);
 
@@ -57,8 +62,8 @@ export const SportsEvents = ({ navigation, route }) => {
             <Spineer isLoading={isLoading} />
             {!isLoading && eventsByUser.length === 0 && (
                 <View style={styles.aviso}>
-                    <Text style={styles.avisoTexto}>No hay eventos deportivos</Text>
-                    <Text style={styles.avisoTexto}>para este día</Text>
+                    <Text style={styles.avisoTexto}>Por favor elige otra fecha</Text>
+
                 </View>
             )}
             {!isLoading && (

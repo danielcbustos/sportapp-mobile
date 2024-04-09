@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { ImageBackground, StyleSheet, TouchableOpacity, View } from 'react-native'
 import { GlobalStyles } from '../../styles/GlobalStyles'
 import { Button } from "react-native-paper";
@@ -6,10 +6,14 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import { Text } from 'react-native';
 import { Text as CardText } from 'react-native-paper';
 import { Card } from 'react-native-paper';
+import { useCityByUser } from '../hooks/useCityById';
+import { Spineer } from '../../utils/Spineer';
 
 
 export const EventDetail = ({ navigation, route }) => {
     const { eventDetails, eventDate } = route.params;
+    // const { getCityById, cityById, errorMessage } = useCityByUser();
+    const { cityName, loading, fetchCity } = useCityByUser();
 
     const formatTime = (dateString) => {
         const date = new Date(dateString);
@@ -22,8 +26,12 @@ export const EventDetail = ({ navigation, route }) => {
         const formattedTime = hours + ':' + minutes + ' ' + ampm;
         return formattedTime;
     };
+
     const eventHour = formatTime(eventDetails.starDateTime);
 
+    useEffect(() => {
+        fetchCity(eventDetails.geographicInfo.cityId);
+    }, []);
 
     return (
         <View style={GlobalStyles.sportApp}>
@@ -32,18 +40,30 @@ export const EventDetail = ({ navigation, route }) => {
                     <Icon name="arrow-left" style={styles.icon} />
                 </TouchableOpacity>
             </View>
+
             <Card style={[GlobalStyles.card, { marginTop: 15 }]}>
                 <Card.Cover style={{ height: 320 }} source={{ uri: eventDetails.picture }} />
             </Card>
-            <View style={{ flexDirection: 'column', justifyContent: 'flex-start', width: '95%' }}>
 
-                <Text style={styles.eventName}>{eventDetails.name}</Text>
-                <Text style={styles.smLetters}>Ciudad</Text>
-                <Text style={styles.smLetters}>{eventDate} - {eventHour}</Text>
-                <Text style={styles.descripcion}>Descripción</Text>
-                <Text style={styles.smLetters}>{eventDetails.description}</Text>
-            </View>
+            <Spineer isLoading={loading} />
+            {!loading && (
+                <View style={{ flexDirection: 'column', justifyContent: 'flex-start', width: '95%' }}>
 
+                    <Text style={styles.eventName}>{eventDetails.name}</Text>
+                    <View style={{ flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', width: '100%' }}>
+                        <Icon name="map" style={styles.icon} />
+                        <Text style={styles.smLetters}>{cityName[0].name}  </Text>
+                    </View>
+
+                    <View style={{ flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', width: '100%' }}>
+                        <Icon name="timer" style={styles.icon} />
+                        <Text style={styles.smLetters}>{eventDate} - {eventHour}</Text>
+                    </View>
+
+                    <Text style={styles.descripcion}>Descripción</Text>
+                    <Text style={styles.smLetters}>{eventDetails.description}</Text>
+                </View>
+            )}
             <Button
                 style={styles.btnLarge}
                 labelStyle={GlobalStyles.btnLayerStyle}

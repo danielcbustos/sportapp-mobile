@@ -24,10 +24,12 @@ export const SignUp = ({ navigation }) => {
             .string()
             .required('El correo es requerido')
             .email('Formato de correo invalido')
-        // .test("email-exists", "El email ya está registrado", async (value) => {
-        //     await validateEmail(value.trim());
-        //     return emailExists;
-        // })
+            .test("email-exists", "El email ya está registrado", async (value) => {
+                await validateEmail(value.trim());
+                return emailExists;
+
+            })
+
         ,
         password: yup
             .string()

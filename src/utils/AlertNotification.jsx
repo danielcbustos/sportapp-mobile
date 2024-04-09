@@ -41,7 +41,7 @@ export const AlertNotification = () => {
             type: ALERT_TYPE.SUCCESS,
             title,
             textBody,
-            button: 'Close',
+            button: 'Cerrar',
 
 
         })
@@ -53,17 +53,17 @@ export const AlertNotification = () => {
             type: ALERT_TYPE.DANGER,
             title,
             textBody,
-            button: 'Close',
-
-
+            button: 'Cerrar',
 
         })
     };
+
 
     return {
         showToastSuccess,
         showToastError,
         showDialogSuccess,
-        showDialogError
+        showDialogError,
+
     }
 }
