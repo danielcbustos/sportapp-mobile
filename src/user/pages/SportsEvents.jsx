@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { Button, StyleSheet, Text, TouchableOpacity, View, FlatList, ScrollView, ImageBackground } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View, ScrollView } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { GlobalStyles } from '../../styles/GlobalStyles';
 import { useSelector } from 'react-redux';
 import { selectUserId, selectUserName } from '../helpers/userSelectors';
-import { useSportEvents, useSportsEvents } from '../hooks/useSportsEvents';
+import { useSportEvents } from '../hooks/useSportsEvents';
 import { Text as CardText } from 'react-native-paper';
 import { Card } from 'react-native-paper';
 import { Spineer } from '../../utils/Spineer';
@@ -24,7 +24,6 @@ export const SportsEvents = ({ navigation, route }) => {
         date.setDate(date.getDate() + 1);
         return date.toLocaleDateString('es-ES', options);
     };
-
 
 
     const eventDate = formattedDateTwo(selectedDate);
