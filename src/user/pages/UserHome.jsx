@@ -2,11 +2,8 @@ import React, { useEffect } from 'react'
 import { Button, StyleSheet, Text, TouchableOpacity, View, FlatList, ScrollView, ImageBackground } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { GlobalStyles } from '../../styles/GlobalStyles';
-import { ALERT_TYPE, Dialog, Toast } from 'react-native-alert-notification';
 import { useSelector } from 'react-redux';
 import { selectUserId, selectUserName, selectUserLastName } from '../helpers/userSelectors';
-import { useSportEvents, useSportsEvents } from '../hooks/useSportsEvents';
-// import eventsByUser from '../helpers/eventsByUser';
 import { Text as CardText } from 'react-native-paper';
 import { Card } from 'react-native-paper';
 

@@ -123,11 +123,12 @@ export const Login = ({ navigation }) => {
                             </Text>
 
                             <RNEButton
-                                title=" Registrate  aquí"
+                                title="Registrate aquí"
                                 radius="5"
                                 iconPosition="left"
                                 type="clear"
                                 color="#000"
+                                testID="register"
                                 titleStyle={styles.registrateAqui}
                                 onPress={() => navigation.navigate('SignUp')}
                             />

@@ -12,7 +12,6 @@ import { Spineer } from '../../utils/Spineer';
 
 export const EventDetail = ({ navigation, route }) => {
     const { eventDetails, eventDate } = route.params;
-    // const { getCityById, cityById, errorMessage } = useCityByUser();
     const { cityName, loading, fetchCity } = useCityByUser();
 
     const formatTime = (dateString) => {
@@ -21,8 +20,8 @@ export const EventDetail = ({ navigation, route }) => {
         let minutes = date.getMinutes();
         const ampm = hours >= 12 ? 'pm' : 'am';
         hours = hours % 12;
-        hours = hours ? hours : 12; // El reloj de 12 horas muestra "12" en lugar de "0"
-        minutes = minutes < 10 ? '0' + minutes : minutes; // Asegurarse de que los minutos siempre tengan dos dígitos
+        hours = hours ? hours : 12;
+        minutes = minutes < 10 ? '0' + minutes : minutes;
         const formattedTime = hours + ':' + minutes + ' ' + ampm;
         return formattedTime;
     };
@@ -82,10 +81,8 @@ const styles = StyleSheet.create({
         marginTop: 40
     },
     iconEvent: {
-
         width: 320,
         height: 320,
-
     },
     icon: {
         fontSize: 42,
@@ -97,7 +94,6 @@ const styles = StyleSheet.create({
         letterSpacing: 0,
         lineHeight: 24,
         marginTop: 5
-
     },
     eventName: {
         fontSize: 24,

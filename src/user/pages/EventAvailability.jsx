@@ -7,33 +7,29 @@ import { Button } from "react-native-paper";
 import { useState } from 'react';
 
 
-
 export const EventAvailability = ({ navigation }) => {
 
     const [selectedDate, setSelectedDate] = useState('');
     const [isButtonClicked, setIsButtonClicked] = useState(false);
 
     const handleDateSelect = (date) => {
-        setSelectedDate(date); // Actualizar el estado de la fecha seleccionada
+        setSelectedDate(date);
     };
-
 
     const handleViewAvailability = () => {
         setIsButtonClicked(true);
     };
 
-
     const formatSelectedDate = (date) => {
-
         const selectedDateObj = new Date(date);
         selectedDateObj.setDate(selectedDateObj.getDate() + 1);
         const year = selectedDateObj.getFullYear();
         const month = String(selectedDateObj.getMonth() + 1).padStart(2, '0');
         const day = String(selectedDateObj.getDate()).padStart(2, '0');
-
         const formattedDate = `${year}-${month}-${day}T00:00:00.000Z`;
         return formattedDate;
     };
+
     const isValid = selectedDate !== '';
 
     useEffect(() => {
@@ -43,7 +39,6 @@ export const EventAvailability = ({ navigation }) => {
             navigation.navigate('SportsEvents', { selectedDate, formattedDate });
         }
     }, [isButtonClicked]);
-
 
 
     return (
@@ -71,7 +66,6 @@ export const EventAvailability = ({ navigation }) => {
 }
 
 const styles = StyleSheet.create({
-
     icon: {
         fontSize: 42,
         color: '#EA9354',

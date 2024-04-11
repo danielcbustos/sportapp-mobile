@@ -3,16 +3,12 @@ import { Button, StyleSheet, Text, TouchableOpacity, View, FlatList, ScrollView,
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { GlobalStyles } from '../../styles/GlobalStyles';
 import { ALERT_TYPE, Dialog, Toast } from 'react-native-alert-notification';
-
 import { Text as CardText } from 'react-native-paper';
 import { Card } from 'react-native-paper';
 
-
 export const Services = ({ navigation }) => {
 
-
     return (
-
         <View style={GlobalStyles.sportApp}>
             <View style={{ flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', width: '100%' }}>
                 <TouchableOpacity onPress={() => navigation.goBack()} >
@@ -22,9 +18,7 @@ export const Services = ({ navigation }) => {
             <Text style={[styles.servicios]}>Servicios</Text>
             <Text style={GlobalStyles.smLetters}>Te ofrecemos los siguientes servicios en{'\n'}Sport App, ¡disfrutalos!</Text>
 
-
             <ScrollView>
-
                 <TouchableOpacity  >
                     <Card style={GlobalStyles.card}>
                         <Card.Content>
@@ -61,7 +55,6 @@ export const Services = ({ navigation }) => {
                     </Card>
                 </TouchableOpacity>
             </ScrollView>
-
         </View>
 
     )

@@ -27,16 +27,14 @@ export const SignUp = ({ navigation }) => {
             .test("email-exists", "El email ya está registrado", async (value) => {
                 await validateEmail(value.trim());
                 return emailExists;
-
             })
-
         ,
         password: yup
             .string()
             .required('La contraseña es requerida')
             .matches(
                 /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
-                "La contraseña debe contener 8 caracteres, letras mayusculas y minisculas, y un caracter especial"
+                "La contraseña debe contener 8 caracteres, letras mayusculas, minisculas, numeros y un caracter especial"
             ),
         confirmPassword: yup.string()
             .required("La validacion de contraseña es requerida")
@@ -73,71 +71,69 @@ export const SignUp = ({ navigation }) => {
                             </TouchableOpacity>
                         </View>
 
-
-
                         <Text style={styles.registro}>Registro</Text>
                         <Input
-
                             placeholder="Nombres"
                             leftIcon={{ name: "account-outline", type: "material-community", color: errors.firstName && touched.firstName ? 'red' : undefined }}
                             inputContainerStyle={[errors.firstName && touched.firstName ? { borderColor: 'red' } : null, styles.inputText]}
                             onChangeText={handleChange('firstName')}
                             onBlur={handleBlur('firstName')}
+                            accessibilityLabel="firstName"
                             value={values.firstName}
                             errorStyle={{ color: 'red' }}
                             errorMessage={errors.firstName && touched.firstName ? <Text >{errors.firstName}</Text> : ''}
-
                         />
-                        <Input
 
+                        <Input
                             placeholder="Apellidos"
                             leftIcon={{ name: "account-outline", type: "material-community", color: errors.lastName && touched.lastName ? 'red' : undefined }}
                             inputContainerStyle={[errors.lastName && touched.lastName ? { borderColor: 'red' } : null, styles.inputText]}
                             onChangeText={handleChange('lastName')}
                             onBlur={handleBlur('lastName')}
+                            accessibilityLabel="lastName"
                             value={values.lastName}
                             errorStyle={{ color: 'red' }}
                             errorMessage={errors.lastName && touched.lastName ? <Text >{errors.lastName}</Text> : ''}
-
                         />
-                        <Input
 
+                        <Input
                             placeholder="Correo"
                             leftIcon={{ name: "account-outline", type: "material-community", color: errors.email && touched.email ? 'red' : undefined }}
                             inputContainerStyle={[errors.email && touched.email ? { borderColor: 'red' } : null, styles.inputText]}
                             onChangeText={handleChange('email')}
                             onBlur={handleBlur('email')}
+                            accessibilityLabel="email"
                             value={values.email}
                             errorStyle={{ color: 'red' }}
                             errorMessage={errors.email && touched.email ? <Text >{errors.email}</Text> : ''}
                         />
 
                         <Input
-
                             placeholder="Contraseña"
                             leftIcon={{ name: "lock-outline", type: "material-community", color: errors.password && touched.password ? 'red' : undefined }}
                             inputContainerStyle={[errors.password && touched.password ? { borderColor: 'red' } : null, styles.inputText]}
                             secureTextEntry={true}
                             onChangeText={handleChange('password')}
                             onBlur={handleBlur('password')}
+                            accessibilityLabel="password"
                             value={values.password}
                             errorStyle={{ color: 'red' }}
                             errorMessage={errors.password && touched.password ? <Text >{errors.password}</Text> : ''}
                         />
 
-
                         <Input
-
                             placeholder="Confirmar Contraseña"
                             leftIcon={{ name: "lock-outline", type: "material-community", color: errors.confirmPassword && touched.confirmPassword ? 'red' : undefined }}
                             inputContainerStyle={[errors.confirmPassword && touched.confirmPassword ? { borderColor: 'red' } : null, styles.inputText]}
                             secureTextEntry={true}
                             onChangeText={handleChange('confirmPassword')}
                             onBlur={handleBlur('confirmPassword')}
+                            accessibilityLabel="confirmPassword"
                             value={values.confirmPassword}
                             errorStyle={{ color: 'red' }}
                             errorMessage={errors.confirmPassword && touched.confirmPassword ? <Text >{errors.confirmPassword}</Text> : ''}
                         />
+
                         <Spineer isLoading={loading} />
                         <Button
                             style={styles.btnLarge}
@@ -148,17 +144,11 @@ export const SignUp = ({ navigation }) => {
                         >
                             Registrar
                         </Button>
-
-
                     </View>
-
                 )
                 }
             </Formik >
         </ScrollView >
-
-
-
     )
 }
 
@@ -178,7 +168,6 @@ const styles = StyleSheet.create({
     btnLarge: {
         marginTop: 20
     },
-
     inputText: {
         marginBottom: 4
     },
