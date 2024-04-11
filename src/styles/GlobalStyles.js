@@ -37,7 +37,6 @@ export const GlobalStyles = StyleSheet.create({
   },
   card: {
     justifyContent: "center",
-
     backgroundColor: "#fff",
     width: wp("75%"),
   },
@@ -49,6 +48,5 @@ export const GlobalStyles = StyleSheet.create({
   },
   cardCover: {
     height: hp("16%"),
-    resizeMode: "stretch",
   },
 });
