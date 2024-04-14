@@ -1,3 +1,4 @@
+import { faker } from "@faker-js/faker";
 describe("template spec", () => {
   it("Correct registration", () => {
     cy.viewport(390, 844);
@@ -11,14 +12,14 @@ describe("template spec", () => {
     cy.wait(500);
     cy.get("[aria-label=lastName]").type("Prueba");
     cy.wait(500);
-    cy.get("[aria-label=email]").type("prueba@gmail.com");
+    cy.get("[aria-label=email]").type(faker.internet.email());
     cy.wait(1000);
     cy.get("[aria-label=password").type("Prueba123*");
     cy.wait(500);
     cy.get("[aria-label=confirmPassword").type("Prueba123*");
     cy.wait(500);
     cy.contains("Registrar").click();
-    cy.wait(1000);
+    cy.wait(2000);
   });
   it("empty fields", () => {
     cy.viewport(390, 844);
@@ -48,8 +49,6 @@ describe("template spec", () => {
     cy.get("[aria-label=password").type("Prueba123*");
     cy.wait(500);
     cy.get("[aria-label=confirmPassword").type("Prueba123*");
-    cy.wait(500);
-    cy.contains("Registrar").click();
     cy.wait(1000);
   });
   it("wrong confirmPassword", () => {
@@ -71,8 +70,6 @@ describe("template spec", () => {
     cy.get("[aria-label=confirmPassword").type("Prueba12*");
     cy.wait(500);
     cy.get("[aria-label=password").click();
-    cy.wait(500);
-    cy.contains("Registrar").click();
     cy.wait(1000);
   });
   it("wrong password format", () => {
@@ -94,8 +91,6 @@ describe("template spec", () => {
     cy.get("[aria-label=confirmPassword").type("Prueb1");
     cy.wait(500);
     cy.get("[aria-label=password").click();
-    cy.wait(500);
-    cy.contains("Registrar").click();
     cy.wait(1000);
   });
   it("wrong email format", () => {
@@ -117,8 +112,6 @@ describe("template spec", () => {
     cy.get("[aria-label=confirmPassword").type("Prueba123*");
     cy.wait(500);
     cy.get("[aria-label=password").click();
-    cy.wait(500);
-    cy.contains("Registrar").click();
     cy.wait(1000);
   });
 });

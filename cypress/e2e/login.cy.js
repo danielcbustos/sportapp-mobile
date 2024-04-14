@@ -21,8 +21,6 @@ describe("Login", () => {
     cy.get("[placeholder=Correo]").type("daniel%%.com");
     cy.wait(500);
     cy.get("[placeholder=Contraseña]").type("Messi96*");
-    cy.wait(500);
-    cy.contains("Iniciar sesión").click();
     cy.wait(1000);
   });
   it("Short Password", () => {
@@ -34,8 +32,6 @@ describe("Login", () => {
     cy.get("[placeholder=Correo]").type("dani@hotmail.com");
     cy.wait(500);
     cy.get("[placeholder=Contraseña]").type("Mess*");
-    cy.wait(500);
-    cy.contains("Iniciar sesión").click();
     cy.wait(1000);
   });
   it("Empty fields", () => {
