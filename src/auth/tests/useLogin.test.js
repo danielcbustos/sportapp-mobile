@@ -8,10 +8,9 @@ describe("useLogin", () => {
     jest.clearAllMocks();
   });
   test("should log in user successfully", async () => {
-    const mockProductServicesData = [
-      { email: "test@example.com", password: "password" },
-    ];
-
-    axios.post.mockResolvedValueOnce({ data: mockProductServicesData });
+    const mockShowToastError = jest.fn();
+    const newLogin = { email: "test@example.com", password: "password" };
+    axios.post.mockRejectedValueOnce(new Error("Login failed"));
+    const { result, waitForNextUpdate } = renderHook(() => useLogin());
   });
 });
