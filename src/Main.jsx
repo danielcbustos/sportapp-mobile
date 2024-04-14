@@ -31,7 +31,7 @@ export const Main = () => {
                 <Stack.Screen name="UserReservations" component={UserReservations} options={{ headerShown: false }} />
             </Stack.Navigator>
         </NavigationContainer>
-        //</AlertNotificationRoot>
+        /* </AlertNotificationRoot> */
 
 
 
