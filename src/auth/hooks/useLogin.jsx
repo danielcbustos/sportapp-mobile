@@ -6,9 +6,11 @@ import { useDispatch } from "react-redux";
 import { setUserState } from "../../../store/sessionUser/sessionUserSlice";
 
 const useLogin = () => {
+
     const { showToastSuccess, showToastError, showDialogSuccess, showDialogError } = AlertNotification();
     const dispatch = useDispatch();
     const [loadingUser, setLoadingUser] = useState(false);
+
     const [userLogged, setUserLogged] = useState(false);
     const [error, setError] = useState(null);
     const urlAPI = API_URL_USER;
@@ -19,6 +21,7 @@ const useLogin = () => {
         setLoadingUser(true);
         setError(null);
         setUserLogged(false);
+
         try {
             const response = await axios.post(
                 `${urlAPI}/api/V1/Account/Login`,

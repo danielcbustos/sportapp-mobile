@@ -17,7 +17,7 @@ const Stack = createNativeStackNavigator();
 export const Main = () => {
 
     return (
-        // <AlertNotificationRoot>
+        //<AlertNotificationRoot>
         <NavigationContainer >
             <Stack.Navigator initialRouteName="Home" >
                 <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
@@ -31,7 +31,7 @@ export const Main = () => {
                 <Stack.Screen name="UserReservations" component={UserReservations} options={{ headerShown: false }} />
             </Stack.Navigator>
         </NavigationContainer>
-        /* </AlertNotificationRoot> */
+        //</AlertNotificationRoot>
 
 
 
