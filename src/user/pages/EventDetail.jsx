@@ -29,7 +29,7 @@ export const EventDetail = ({ navigation, route }) => {
     const eventHour = formatTime(eventDetails.starDateTime);
 
     useEffect(() => {
-        fetchCity(eventDetails.geographicInfo.cityId);
+        fetchCity(eventDetails.cityId);
     }, []);
 
     return (
