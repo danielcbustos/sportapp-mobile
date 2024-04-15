@@ -1,10 +1,9 @@
 import { useState } from "react";
 import axios from "axios";
-import { API_URL_USER } from "@env";
 import { AlertNotification } from "../../utils/AlertNotification";
 import { useDispatch } from "react-redux";
 import { setUserState } from "../../../store/sessionUser/sessionUserSlice";
-
+import { API_URL_USER } from "@env";
 const useLogin = () => {
 
     const { showToastSuccess, showToastError, showDialogSuccess, showDialogError } = AlertNotification();
@@ -13,7 +12,8 @@ const useLogin = () => {
 
     const [userLogged, setUserLogged] = useState(false);
     const [error, setError] = useState(null);
-    const urlAPI = API_URL_USER;
+    // const urlAPI = process.env.API_URL_USER;
+    const urlAPI = API_URL_USER
 
     // const urlAPI = "http://localhost:5088"
 
@@ -23,8 +23,9 @@ const useLogin = () => {
         setUserLogged(false);
 
         try {
+            console.log(urlAPI)
             const response = await axios.post(
-                `https://sportappusersapi.azurewebsites.net/api/V1/Account/Login`,
+                `${urlAPI}/api/V1/Account/Login`,
                 formCredentials
             );
             dispatch(setUserState(response.data));

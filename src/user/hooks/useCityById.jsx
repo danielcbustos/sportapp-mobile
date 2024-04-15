@@ -21,7 +21,7 @@ export const useCityByUser = () => {
 
         try {
 
-            const response = await axios.get(`https://sportappusersapi.azurewebsites.net/api/Geography/CitiesById/${cityId}`, tokenPayLoad);
+            const response = await axios.get(`${urlAPI}/api/Geography/CitiesById/${cityId}`, tokenPayLoad);
             setCityName(response.data);
             setLoading(false);
         } catch (error) {

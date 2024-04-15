@@ -1,4 +1,4 @@
-describe("Login", () => {
+describe("Sport Events", () => {
   it("sports events list is not empty", () => {
     cy.viewport(390, 844);
     cy.visit("http://192.168.0.7:8081");

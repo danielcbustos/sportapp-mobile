@@ -14,7 +14,7 @@ const useRegisterUser = (initial) => {
     try {
       setLoading(true);
       const response = await axios.post(
-        `https://sportappusersapi.azurewebsites.net/api/V1/Account/Register`,
+        `${urlAPI}/api/V1/Account/Register`,
         newUser
       );
       setUserCreated(true);
