@@ -23,7 +23,7 @@ export const useSportEvents = (userId) => {
         };
         // `https://localhost:32769/api/v1/productService/getFilteredList`
         axios
-            .post(`${urlAPI}/api/v1/productService/getFilteredList`, queryEvents)
+            .post(`https://sportappproductsservicesapi.azurewebsites.net/api/v1/productService/getFilteredList`, queryEvents)
             .then((response) => {
                 const events = response.data;
                 setEventsByUser(events);

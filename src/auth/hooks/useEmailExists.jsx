@@ -11,7 +11,7 @@ const useEmailExists = () => {
   const validateEmail = async (email) => {
     setIsSubmitting(true);
     try {
-      const response = await axios.get(`${urlAPI}/api/V1/Account/is-email-unique/${email.trim()}`
+      const response = await axios.get(`https://sportappusersapi.azurewebsites.net/api/V1/Account/is-email-unique/${email.trim()}`
       );
       setEmailExists(response.data);
       // console.log(response.data)

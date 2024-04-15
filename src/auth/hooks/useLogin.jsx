@@ -24,7 +24,7 @@ const useLogin = () => {
 
         try {
             const response = await axios.post(
-                `${urlAPI}/api/V1/Account/Login`,
+                `https://sportappusersapi.azurewebsites.net/api/V1/Account/Login`,
                 formCredentials
             );
             dispatch(setUserState(response.data));
