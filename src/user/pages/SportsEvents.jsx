@@ -68,7 +68,7 @@ export const SportsEvents = ({ navigation, route }) => {
             {!isLoading && (
                 <ScrollView>
                     {eventsByUser.map(item => (
-                        <TouchableOpacity key={item.id} onPress={() => navigation.navigate('EventDetail', { eventDetails: item, eventDate })} >
+                        <TouchableOpacity key={item.productId} onPress={() => navigation.navigate('EventDetail', { eventDetails: item, eventDate })} >
                             <Card accessibilityLabel="event" style={GlobalStyles.card}>
                                 <Card.Content>
                                     <CardText style={GlobalStyles.cardText} variant="bodyMedium">{item.name}</CardText>
