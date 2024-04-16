@@ -21,10 +21,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/perro.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.danielb1234.SportAppMobile"
     },
     "web": {
       "favicon": "./assets/perro.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "34a58080-08b9-4f4c-972c-4d12f5330507"
+      }
     }
   }
 }
