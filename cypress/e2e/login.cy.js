@@ -1,7 +1,9 @@
+// const url="http://192.168.0.7:8081"
+const url = "http://localhost:8081";
 describe("Login", () => {
   it("Correct Login", () => {
     cy.viewport(390, 844);
-    cy.visit("http://192.168.0.7:8081");
+    cy.visit(url);
     cy.wait(500);
     cy.contains("Empezar").click();
     cy.wait(500);
@@ -14,7 +16,7 @@ describe("Login", () => {
   });
   it("Wrong email format", () => {
     cy.viewport(390, 844);
-    cy.visit("http://192.168.0.7:8081");
+    cy.visit(url);
     cy.wait(500);
     cy.contains("Empezar").click();
     cy.wait(500);
@@ -25,7 +27,7 @@ describe("Login", () => {
   });
   it("Short Password", () => {
     cy.viewport(390, 844);
-    cy.visit("http://192.168.0.7:8081");
+    cy.visit(url);
     cy.wait(500);
     cy.contains("Empezar").click();
     cy.wait(500);
@@ -36,7 +38,7 @@ describe("Login", () => {
   });
   it("Empty fields", () => {
     cy.viewport(390, 844);
-    cy.visit("http://192.168.0.7:8081");
+    cy.visit(url);
     cy.wait(500);
     cy.contains("Empezar").click();
     cy.wait(500);
@@ -45,7 +47,7 @@ describe("Login", () => {
   });
   it("Wrong credentials", () => {
     cy.viewport(390, 844);
-    cy.visit("http://192.168.0.7:8081");
+    cy.visit(url);
     cy.wait(500);
     cy.contains("Empezar").click();
     cy.wait(500);

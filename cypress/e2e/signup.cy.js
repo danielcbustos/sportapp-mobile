@@ -1,8 +1,9 @@
 import { faker } from "@faker-js/faker";
+const url = "http://localhost:8081";
 describe("SignUp", () => {
   it("Correct registration", () => {
     cy.viewport(390, 844);
-    cy.visit("http://192.168.0.7:8081");
+    cy.visit(url);
     cy.wait(500);
     cy.contains("Empezar").click();
     cy.wait(500);
@@ -23,7 +24,7 @@ describe("SignUp", () => {
   });
   it("empty fields", () => {
     cy.viewport(390, 844);
-    cy.visit("http://192.168.0.7:8081");
+    cy.visit(url);
     cy.wait(500);
     cy.contains("Empezar").click();
     cy.wait(500);
@@ -34,7 +35,7 @@ describe("SignUp", () => {
   });
   it("email already exists", () => {
     cy.viewport(390, 844);
-    cy.visit("http://192.168.0.7:8081");
+    cy.visit(url);
     cy.wait(500);
     cy.contains("Empezar").click();
     cy.wait(500);
@@ -53,7 +54,7 @@ describe("SignUp", () => {
   });
   it("wrong confirmPassword", () => {
     cy.viewport(390, 844);
-    cy.visit("http://192.168.0.7:8081");
+    cy.visit(url);
     cy.wait(500);
     cy.contains("Empezar").click();
     cy.wait(500);
@@ -74,7 +75,7 @@ describe("SignUp", () => {
   });
   it("wrong password format", () => {
     cy.viewport(390, 844);
-    cy.visit("http://192.168.0.7:8081");
+    cy.visit(url);
     cy.wait(500);
     cy.contains("Empezar").click();
     cy.wait(500);
@@ -95,7 +96,7 @@ describe("SignUp", () => {
   });
   it("wrong email format", () => {
     cy.viewport(390, 844);
-    cy.visit("http://192.168.0.7:8081");
+    cy.visit(url);
     cy.wait(500);
     cy.contains("Empezar").click();
     cy.wait(500);

@@ -1,7 +1,8 @@
+const url = "http://localhost:8081";
 describe("Sport Events", () => {
   it("sports events list is not empty", () => {
     cy.viewport(390, 844);
-    cy.visit("http://192.168.0.7:8081");
+    cy.visit(url);
     cy.wait(500);
     cy.contains("Empezar").click();
     cy.wait(500);
@@ -23,7 +24,7 @@ describe("Sport Events", () => {
 
   it("sports events list is empty", () => {
     cy.viewport(390, 844);
-    cy.visit("http://192.168.0.7:8081");
+    cy.visit(url);
     cy.wait(500);
     cy.contains("Empezar").click();
     cy.wait(500);
@@ -44,7 +45,7 @@ describe("Sport Events", () => {
   });
   it("no date selected", () => {
     cy.viewport(390, 844);
-    cy.visit("http://192.168.0.7:8081");
+    cy.visit(url);
     cy.wait(500);
     cy.contains("Empezar").click();
     cy.wait(500);
@@ -61,7 +62,7 @@ describe("Sport Events", () => {
   });
   it("sports event detail", () => {
     cy.viewport(390, 844);
-    cy.visit("http://192.168.0.7:8081");
+    cy.visit(url);
     cy.wait(500);
     cy.contains("Empezar").click();
     cy.wait(500);
