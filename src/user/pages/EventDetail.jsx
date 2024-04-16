@@ -26,7 +26,7 @@ export const EventDetail = ({ navigation, route }) => {
         return formattedTime;
     };
 
-    const eventHour = formatTime(eventDetails.starDateTime);
+    const eventHour = formatTime(eventDetails.startDateTime);
 
     useEffect(() => {
         fetchCity(eventDetails.cityId);
