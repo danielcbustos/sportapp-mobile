@@ -40,7 +40,7 @@ export const Login = ({ navigation }) => {
     useEffect(() => {
         if (userLogged) {
             setformValues(initialValuesObject);
-            navigation.navigate('UserHome');
+            navigation.navigate('HomeScreen');
         }
     }, [userLogged]);
 

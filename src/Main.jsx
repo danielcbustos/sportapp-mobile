@@ -11,30 +11,73 @@ import { EventAvailability } from './user/pages/EventAvailability';
 import { EventDetail } from './user/pages/EventDetail';
 import { UserReservations } from './user/pages/UserReservations';
 import { AlertNotificationRoot } from "react-native-alert-notification";
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Ionicons } from '@expo/vector-icons';
+import { UserMealProfile } from './user/pages/user-profile/UserMealProfile';
+import { Messages } from './user/pages/user-profile/Messages';
+import { Historical } from './user/pages/user-profile/Historical';
+
+
 const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 
 
-export const Main = () => {
+export const Main = () => (
+    <AlertNotificationRoot>
+        <NavigationContainer>
+            <Stack.Navigator initialRouteName="Home"
+                screenOptions={{ headerShown: false }}>
+                <Stack.Screen name="Home" component={Home} />
+                <Stack.Screen name="Login" component={Login} />
+                <Stack.Screen name="SignUp" component={SignUp} />
+                <Stack.Screen name="HomeScreen" component={HomeScreen} />
 
-    return (
-        // <AlertNotificationRoot>
-        <NavigationContainer >
-            <Stack.Navigator initialRouteName="Home" >
-                <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
-                <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
-                <Stack.Screen name="SignUp" component={SignUp} options={{ headerShown: false }} />
-                <Stack.Screen name="UserHome" component={UserHome} options={{ headerShown: false }} />
-                <Stack.Screen name="Services" component={Services} options={{ headerShown: false }} />
-                <Stack.Screen name="EventAvailability" component={EventAvailability} options={{ headerShown: false }} />
-                <Stack.Screen name="SportsEvents" component={SportsEvents} options={{ headerShown: false }} />
-                <Stack.Screen name="EventDetail" component={EventDetail} options={{ headerShown: false }} />
-                <Stack.Screen name="UserReservations" component={UserReservations} options={{ headerShown: false }} />
             </Stack.Navigator>
         </NavigationContainer>
-        //</AlertNotificationRoot>
+    </AlertNotificationRoot>
+
+);
+
+const HomeScreen = () => (
+    <Tab.Navigator
+        screenOptions={({ route }) => ({
+            tabBarIcon: ({ focused, }) => {
+                let iconName;
+                if (route.name === "Inicio") {
+                    iconName = focused ? "home" : "home-outline";
+                } else if (route.name === "Historial") {
+                    iconName = focused ? "time" : "time-outline";
+                } else if (route.name === "Mensajes") {
+                    iconName = focused ? "chatbubbles" : "chatbubbles-outline";
+                } else if (route.name === "Perfil") {
+                    iconName = focused ? "person" : "person-outline";
+                }
+                return <Ionicons name={iconName} size={28} color="#EA9354" />;
+            },
+
+        })}
+    >
+        <Tab.Screen name="Inicio" component={SportAppStack} options={{ headerShown: false }} />
+        <Tab.Screen name="Historial" component={Historical} options={{ headerShown: false }} />
+        <Tab.Screen name="Mensajes" component={Messages} options={{ headerShown: false }} />
+        <Tab.Screen name="Perfil" component={UserMealProfile} options={{ headerShown: false }} />
 
 
+    </Tab.Navigator>
 
-    )
-}
 
+);
+const SportAppStack = () => (
+    <Stack.Navigator initialRouteName="Home"
+        screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="UserHome" component={UserHome} />
+        <Stack.Screen name="Services" component={Services} />
+        <Stack.Screen name="EventAvailability" component={EventAvailability} />
+        <Stack.Screen name="SportsEvents" component={SportsEvents} />
+        <Stack.Screen name="EventDetail" component={EventDetail} />
+        <Stack.Screen name="UserReservations" component={UserReservations} />
+
+    </Stack.Navigator>
+
+
+);
