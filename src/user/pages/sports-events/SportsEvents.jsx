@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { StyleSheet, Text, TouchableOpacity, View, ScrollView } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { GlobalStyles } from '../../styles/GlobalStyles';
+import { GlobalStyles } from '../../../styles/GlobalStyles';
 import { useSelector } from 'react-redux';
-import { selectUserId, selectUserName } from '../helpers/userSelectors';
-import { useSportEvents } from '../hooks/useSportsEvents';
+import { selectUserId, selectUserName } from '../../helpers/userSelectors';
+import { useSportEvents } from '../../hooks/useSportsEvents';
 import { Text as CardText } from 'react-native-paper';
 import { Card } from 'react-native-paper';
-import { Spineer } from '../../utils/Spineer';
-import { AlertNotification } from '../../utils/AlertNotification';
+import { Spineer } from '../../../utils/Spineer';
+import { AlertNotification } from '../../../utils/AlertNotification';
 
 
 export const SportsEvents = ({ navigation, route }) => {
@@ -98,13 +98,6 @@ const styles = StyleSheet.create({
         fontSize: 32,
         fontWeight: "600",
         color: '#000000',
-    },
-    smLetters: {
-        color: '#000000',
-        fontSize: 14,
-        letterSpacing: 0,
-        lineHeight: 24,
-        textAlign: "center",
     },
     negrilla: {
         fontWeight: 'bold',

@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react'
 import { ImageBackground, StyleSheet, TouchableOpacity, View } from 'react-native'
-import { GlobalStyles } from '../../styles/GlobalStyles'
+import { GlobalStyles } from '../../../styles/GlobalStyles'
 import { Button } from "react-native-paper";
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { Text } from 'react-native';
 import { Text as CardText } from 'react-native-paper';
 import { Card } from 'react-native-paper';
-import { useCityByUser } from '../hooks/useCityById';
-import { Spineer } from '../../utils/Spineer';
+import { useCityByUser } from '../../hooks/useCityById';
+import { Spineer } from '../../../utils/Spineer';
 
 
 export const EventDetail = ({ navigation, route }) => {

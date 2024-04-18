@@ -35,6 +35,7 @@ export const GlobalStyles = StyleSheet.create({
     lineHeight: 24,
     textAlign: "center",
   },
+
   card: {
     justifyContent: "center",
     backgroundColor: "#fff",

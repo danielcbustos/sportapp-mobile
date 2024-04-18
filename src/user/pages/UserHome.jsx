@@ -9,7 +9,6 @@ import { Card } from 'react-native-paper';
 
 export const UserHome = ({ navigation }) => {
     const name = useSelector(selectUserName)
-    const lastName = useSelector(selectUserLastName);
 
     return (
         <View style={GlobalStyles.sportApp}>

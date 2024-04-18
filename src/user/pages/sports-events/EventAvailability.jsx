@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { GlobalStyles } from '../../styles/GlobalStyles';
-import { CalendarComp } from '../../components/CalendarComp';
+import { GlobalStyles } from '../../../styles/GlobalStyles';
+import { CalendarComp } from '../../../components/CalendarComp';
 import { Button } from "react-native-paper";
 import { useState } from 'react';
 
