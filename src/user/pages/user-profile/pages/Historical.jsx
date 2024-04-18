@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react'
 import { ImageBackground, StyleSheet, TouchableOpacity, View } from 'react-native'
-import { GlobalStyles } from '../../../styles/GlobalStyles';
+import { GlobalStyles } from '../../../../styles/GlobalStyles';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { Text } from 'react-native';
 
 
 
-export const Messages = ({ navigation }) => {
+export const Historical = ({ navigation }) => {
 
     return (
         <View style={GlobalStyles.sportApp}>
@@ -17,7 +17,7 @@ export const Messages = ({ navigation }) => {
                 </TouchableOpacity>
             </View>
             <View style={styles.aviso}>
-                <Text style={styles.avisoTexto}>No tienes Mensajes</Text>
+                <Text style={styles.avisoTexto}>No tienes Historial</Text>
 
             </View>
         </View>

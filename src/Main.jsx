@@ -6,16 +6,16 @@ import { Login } from './auth/pages/Login';
 import { SignUp } from './auth/pages/SignUp';
 import { UserHome } from './user/pages/UserHome';
 import { Services } from './user/pages/Services';
-import { SportsEvents } from './user/pages/sports-events/SportsEvents';
-import { EventAvailability } from './user/pages/sports-events/EventAvailability';
-import { EventDetail } from './user/pages/sports-events/EventDetail';
+import { SportsEvents } from './user/pages/sports-events/pages/SportsEvents';
+import { EventAvailability } from './user/pages/sports-events/pages/EventAvailability';
+import { EventDetail } from './user/pages/sports-events/pages/EventDetail';
 import { UserReservations } from './user/pages/UserReservations';
 import { AlertNotificationRoot } from "react-native-alert-notification";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
-import { UserMealProfile } from './user/pages/user-profile/UserMealProfile';
-import { Messages } from './user/pages/user-profile/Messages';
-import { Historical } from './user/pages/user-profile/Historical';
+import { UserMealProfile } from './user/pages/user-profile/pages/UserMealProfile';
+import { Messages } from './user/pages/user-profile/pages/Messages';
+import { Historical } from './user/pages/user-profile/pages/Historical';
 
 
 const Stack = createNativeStackNavigator();

@@ -2,7 +2,7 @@
 
 import axios from "axios";
 import { useState } from "react";
-import { AlertNotification } from "../../utils/AlertNotification";
+import { AlertNotification } from "../../../../utils/AlertNotification";
 import { API_URL_SERVICE } from "@env";
 
 export const useSportEvents = (userId) => {

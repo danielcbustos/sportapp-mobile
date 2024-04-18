@@ -3,14 +3,14 @@ import { Button } from "react-native-paper";
 import { StyleSheet, Text, View, TouchableOpacity, Alert, ScrollView } from "react-native";
 import { Input } from "@rneui/themed";
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { GlobalStyles } from '../../../styles/GlobalStyles';
+import { GlobalStyles } from '../../../../styles/GlobalStyles';
 import * as yup from 'yup';
 import { Formik } from 'formik';
-import useEmailExists from '../../../auth/hooks/useEmailExists';
-import useRegisterUser from '../../../auth/hooks/useRegisterUser';
-import { Spineer } from '../../../utils/Spineer';
+import useEmailExists from '../../../../auth/hooks/useEmailExists';
+import useRegisterUser from '../../../../auth/hooks/useRegisterUser';
+import { Spineer } from '../../../../utils/Spineer';
 import { useSelector } from 'react-redux';
-import { selectUserId, selectUserName, selectUserLastName } from '../../helpers/userSelectors';
+import { selectUserId, selectUserName, selectUserLastName } from '../../../helpers/userSelectors';
 
 export const UserMealProfile = ({ navigation }) => {
     const name = useSelector(selectUserName)

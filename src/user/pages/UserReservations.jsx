@@ -5,7 +5,7 @@ import { GlobalStyles } from '../../styles/GlobalStyles';
 import { ALERT_TYPE, Dialog, Toast } from 'react-native-alert-notification';
 
 import { selectUserId, selectUserName } from '../helpers/userSelectors';
-import { useSportEvents, useSportsEvents } from '../hooks/useSportsEvents';
+import { useSportEvents, useSportsEvents } from './sports-events/hooks/useSportsEvents';
 import { useSelector } from 'react-redux';
 import { AgendaComp } from '../../components/AgendaComp';
 
