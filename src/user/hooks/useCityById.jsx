@@ -7,7 +7,6 @@ import { useSelector } from 'react-redux';
 
 export const useCityByUser = () => {
 
-    // const [isSubmitting, setIsSubmitting] = useState(false);
     const [cityName, setCityName] = useState("");
     const [loading, setLoading] = useState(true);
 

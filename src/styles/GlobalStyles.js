@@ -50,4 +50,8 @@ export const GlobalStyles = StyleSheet.create({
   cardCover: {
     height: hp("16%"),
   },
+  label: {
+    fontSize: 15,
+    fontWeight: "bold",
+  },
 });

@@ -67,7 +67,7 @@ export const EventDetail = ({ navigation, route }) => {
                 style={styles.btnLarge}
                 labelStyle={GlobalStyles.btnLayerStyle}
                 contentStyle={GlobalStyles.btnLarge1}
-                onPress={() => navigation.navigate('UserReservations')}
+                onPress={() => navigation.navigate('UserHome')}
             >
                 Reservar
             </Button>

@@ -37,7 +37,7 @@ export const Services = ({ navigation }) => {
                     </Card>
                 </TouchableOpacity>
 
-                <TouchableOpacity  >
+                <TouchableOpacity onPress={() => navigation.navigate('MealPlans')}>
                     <Card style={GlobalStyles.card}>
                         <Card.Content>
                             <CardText style={GlobalStyles.cardText} variant="bodyMedium">Planes Alimenticios</CardText>

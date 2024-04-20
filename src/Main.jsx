@@ -16,6 +16,9 @@ import { Ionicons } from '@expo/vector-icons';
 import { UserMealProfile } from './user/pages/user-profile/pages/UserMealProfile';
 import { Messages } from './user/pages/user-profile/pages/Messages';
 import { Historical } from './user/pages/user-profile/pages/Historical';
+import { MealPlans } from './user/pages/meal-plans/pages/MealPlans';
+import { Text } from 'react-native';
+import { Progress } from './user/pages/user-profile/pages/Progress';
 
 
 const Stack = createNativeStackNavigator();
@@ -55,6 +58,15 @@ const HomeScreen = () => (
                 return <Ionicons name={iconName} size={28} color="#EA9354" />;
             },
 
+            tabBarLabel: ({ focused, color }) => {
+
+                const labelStyle = {
+                    fontSize: focused ? 10 : 10, // Tamaño de letra aumentado si la pestaña está enfocada
+                    color: focused ? '#EA9354' : '#666666', // Color predeterminado
+                };
+                return <Text style={labelStyle}>{route.name}</Text>;
+            },
+
         })}
     >
         <Tab.Screen name="Inicio" component={SportAppStack} options={{ headerShown: false }} />
@@ -76,6 +88,8 @@ const SportAppStack = () => (
         <Stack.Screen name="SportsEvents" component={SportsEvents} />
         <Stack.Screen name="EventDetail" component={EventDetail} />
         <Stack.Screen name="UserReservations" component={UserReservations} />
+        <Stack.Screen name="MealPlans" component={MealPlans} />
+        <Stack.Screen name="Progress" component={Progress} />
 
     </Stack.Navigator>
 
