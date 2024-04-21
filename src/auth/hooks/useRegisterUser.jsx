@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useState } from "react";
-// import { Alerts } from "../../Utils/Alerts";
 import { API_URL_USER } from "@env";
 import { AlertNotification } from "../../utils/AlertNotification";
 

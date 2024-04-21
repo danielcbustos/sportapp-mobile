@@ -140,6 +140,7 @@ export const UserMealProfile = ({ navigation }) => {
                                     thumbColor={formValues.hasMedicalAllergies ? '#f4f3f4' : '#f4f3f4'}
                                     value={formValues.hasMedicalAllergies}
                                     onValueChange={(value) => setFormValues({ ...formValues, hasMedicalAllergies: value })}
+                                    accessibilityLabel="medicalAllergies"
                                 />
                                 <Text >{formValues.hasMedicalAllergies ? 'Si' : 'No'}</Text>
                             </View>
@@ -178,6 +179,7 @@ export const UserMealProfile = ({ navigation }) => {
                                     trackColor={{ false: '#767577', true: '#EA9354' }}
                                     thumbColor={formValues.hasAllergies ? '#f4f3f4' : '#f4f3f4'}
                                     value={formValues.hasAllergies}
+                                    accessibilityLabel="mealAllergies"
                                     onValueChange={(value) => {
 
                                         if (!value) {
