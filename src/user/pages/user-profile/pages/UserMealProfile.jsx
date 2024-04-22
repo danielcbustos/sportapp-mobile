@@ -11,7 +11,7 @@ import { useSelector } from 'react-redux';
 import { selectUserId, selectUserName, selectUserLastName, selectUserEmail } from '../../../helpers/userSelectors';
 import { useNutritionalAlergies } from '../hooks/useNutritionalAlergies';
 import { useTypesOfNutrition } from '../hooks/useTypesOfNutrition';
-import RNPickerSelect from "react-native-picker-select";
+import { Picker } from '@react-native-picker/picker';
 import SectionedMultiSelect from 'react-native-sectioned-multi-select';
 import { MaterialIcons } from '@expo/vector-icons';
 import {
@@ -146,15 +146,17 @@ export const UserMealProfile = ({ navigation }) => {
                             </View>
 
                             <Text style={GlobalStyles.label}>¿Cual es tu tipo de dieta? </Text>
-                            <RNPickerSelect
-                                placeholder={{ label: "Selecciona aquí", color: 'grey', value: null }}
-                                onValueChange={(value) => setFormValues({ ...formValues, nutritionType: value })}
-                                items={typesOfNutrition.map(item => ({
-                                    label: item.name,
-                                    value: item.id
-                                }))}
-                                value={formValues.nutritionType}
-                            />
+                            <Picker
+                                // prompt="Selecciona aquí"
+                                onValueChange={(value) =>
+                                    setFormValues({ ...formValues, nutritionType: value })
+                                }
+                                selectedValue={formValues.nutritionType}>
+                                <Picker.Item label="Selecciona aquí" value={null} />
+                                {typesOfNutrition.map(item => (
+                                    <Picker.Item label={item.name} value={item.id} key={item.id} />
+                                ))}
+                            </Picker>
                             {errors.nutritionType && touched.nutritionType && (
                                 <Text style={{ color: 'red', fontSize: 12 }}>{errors.nutritionType}</Text>
                             )}
