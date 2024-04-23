@@ -2,7 +2,7 @@ import { renderHook, act } from "@testing-library/react-hooks";
 import axios from "axios";
 import { Provider } from "react-redux";
 import { store } from "../../../../../store/store";
-import { useGoalTracking } from "../hooks/useGoalTracking";
+import { useGoalTracking } from "../hooks/useGoaltracking";
 
 jest.mock("axios");
 
