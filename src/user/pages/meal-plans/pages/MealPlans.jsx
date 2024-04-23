@@ -8,15 +8,18 @@ import { Text as CardText } from 'react-native-paper';
 import { Card } from 'react-native-paper';
 import { Spineer } from '../../../../utils/Spineer';
 import { AlertNotification } from '../../../../utils/AlertNotification';
+import { useMealPlans } from '../hooks/useMealPlans';
 
 
 export const MealPlans = ({ navigation }) => {
     const userId = useSelector(selectUserId);
-    // const { selectedDate, formattedDate } = route.params;
-    // const { eventsByUser, loadEvents, errorInEvents, getEvents } = useSportEvents(userId);
+    const { mealPlansByUser, loadMealPlans, errorInMealPlans, getMealPlans } = useMealPlans();
     const [isLoading, setIsLoading] = useState(true);
     const { showDialogError } = AlertNotification();
 
+    useEffect(() => {
+        getMealPlans(userId);
+    }, []);
 
     return (
 
@@ -31,12 +34,14 @@ export const MealPlans = ({ navigation }) => {
             </Text>
 
 
-            {/* <Spineer isLoading={isLoading} /> */}
+            <Spineer isLoading={loadMealPlans} />
 
-            {/* 
+
             <ScrollView>
-                {eventsByUser.map(item => (
-                    <TouchableOpacity key={item.productId} onPress={() => navigation.navigate('EventDetail', { eventDetails: item, eventDate })} >
+                {mealPlansByUser.map(item => (
+                    <TouchableOpacity key={item.productId}
+                        onPress={() => navigation.navigate('MealPlanDetail', { mealPlanDetails: item })}
+                    >
                         <Card accessibilityLabel="event" style={GlobalStyles.card}>
                             <Card.Content>
                                 <CardText style={GlobalStyles.cardText} variant="bodyMedium">{item.name}</CardText>
@@ -48,7 +53,7 @@ export const MealPlans = ({ navigation }) => {
 
 
                 ))}
-            </ScrollView> */}
+            </ScrollView>
 
         </View>
 

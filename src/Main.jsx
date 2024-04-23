@@ -19,6 +19,7 @@ import { Historical } from './user/pages/user-profile/pages/Historical';
 import { MealPlans } from './user/pages/meal-plans/pages/MealPlans';
 import { Text } from 'react-native';
 import { Progress } from './user/pages/user-profile/pages/Progress';
+import { MealPlanDetail } from './user/pages/meal-plans/pages/MealPlanDetail';
 
 
 const Stack = createNativeStackNavigator();
@@ -88,6 +89,7 @@ const SportAppStack = () => (
         <Stack.Screen name="EventDetail" component={EventDetail} />
         <Stack.Screen name="UserReservations" component={UserReservations} />
         <Stack.Screen name="MealPlans" component={MealPlans} />
+        <Stack.Screen name="MealPlanDetail" component={MealPlanDetail} />
         <Stack.Screen name="Progress" component={Progress} />
 
     </Stack.Navigator>
