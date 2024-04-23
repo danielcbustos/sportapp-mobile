@@ -54,4 +54,13 @@ export const GlobalStyles = StyleSheet.create({
     fontSize: 15,
     fontWeight: "bold",
   },
+  miniCard: {
+    backgroundColor: "#fff",
+    height: hp("13%"),
+    width: wp("23%"),
+  },
+  miniCardCover: {
+    height: hp("13%"),
+    width: wp("23%"),
+  },
 });

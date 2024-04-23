@@ -80,8 +80,7 @@ describe("Sport Events", () => {
     cy.wait(500);
     cy.contains("Ver disponibilidad").click();
     cy.wait(2000);
-    // cy.get("[aria-label=event]").should("exist").click();
-    // cy.get("[aria-label=event]").first().click();
+    cy.get("[aria-label=event]").should("exist").first().click();
     cy.wait(1500);
   });
 });
