@@ -42,7 +42,7 @@ export const MealPlans = ({ navigation }) => {
                     <TouchableOpacity key={item.productId}
                         onPress={() => navigation.navigate('MealPlanDetail', { mealPlanDetails: item })}
                     >
-                        <Card accessibilityLabel="event" style={GlobalStyles.card}>
+                        <Card accessibilityLabel="mealPlan" style={GlobalStyles.card}>
                             <Card.Content>
                                 <CardText style={GlobalStyles.cardText} variant="bodyMedium">{item.name}</CardText>
                             </Card.Content>

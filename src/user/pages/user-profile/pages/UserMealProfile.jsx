@@ -147,12 +147,14 @@ export const UserMealProfile = ({ navigation }) => {
 
                             <Text style={GlobalStyles.label}>¿Cual es tu tipo de dieta? </Text>
                             <Picker
-                                // prompt="Selecciona aquí"
+                                testID='web_picker'
                                 onValueChange={(value) =>
                                     setFormValues({ ...formValues, nutritionType: value })
                                 }
                                 selectedValue={formValues.nutritionType}>
+
                                 <Picker.Item label="Selecciona aquí" value={null} />
+
                                 {typesOfNutrition.map(item => (
                                     <Picker.Item label={item.name} value={item.id} key={item.id} />
                                 ))}
