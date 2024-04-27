@@ -20,26 +20,40 @@ import { MealPlans } from './user/pages/meal-plans/pages/MealPlans';
 import { Text } from 'react-native';
 import { Progress } from './user/pages/user-profile/pages/Progress';
 import { MealPlanDetail } from './user/pages/meal-plans/pages/MealPlanDetail';
+import { useSelector } from "react-redux";
+import { selectUserId } from './user/helpers/userSelectors';
+import { SignalConnector } from './user/helpers/SignalConnector';
 
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 
-export const Main = () => (
-    <AlertNotificationRoot>
-        <NavigationContainer>
-            <Stack.Navigator initialRouteName="Home"
-                screenOptions={{ headerShown: false }}>
-                <Stack.Screen name="Home" component={Home} />
-                <Stack.Screen name="Login" component={Login} />
-                <Stack.Screen name="SignUp" component={SignUp} />
-                <Stack.Screen name="HomeScreen" component={HomeScreen} />
-            </Stack.Navigator>
-        </NavigationContainer>
-    </AlertNotificationRoot>
+export const Main = () => {
+    const userId = useSelector(selectUserId);
+    const notify = (values) => {
+        toast.success(values.title, {
+            closeButton: CloseButton,
+        });
+    };
+    const { dataSignal } = SignalConnector(notify, userId);
 
-);
+    return (
+        <AlertNotificationRoot
+            theme="dark"
+        >
+            <NavigationContainer>
+                <Stack.Navigator initialRouteName="Home"
+                    screenOptions={{ headerShown: false }}>
+                    <Stack.Screen name="Home" component={Home} />
+                    <Stack.Screen name="Login" component={Login} />
+                    <Stack.Screen name="SignUp" component={SignUp} />
+                    <Stack.Screen name="HomeScreen" component={HomeScreen} />
+                </Stack.Navigator>
+            </NavigationContainer>
+        </AlertNotificationRoot>
+    )
+};
 
 const HomeScreen = () => (
     <Tab.Navigator
