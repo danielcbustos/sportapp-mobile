@@ -13,10 +13,9 @@ export const useMealPlans = () => {
     const [errorInMealPlans, setErrorInMealPlans] = useState(false);
 
 
-    const getMealPlans = async (userId) => {
+    const getMealPlans = async () => {
         setLoadMealPlans(true);
         const queryMealPlans = {
-            user: userId,
             serviceTypes: ["01B50F0D-3226-4DF2-B912-4DA4B37D9BD9"],
         };
         axios

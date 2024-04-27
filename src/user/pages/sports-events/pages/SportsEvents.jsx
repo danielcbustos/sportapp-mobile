@@ -12,9 +12,8 @@ import { AlertNotification } from '../../../../utils/AlertNotification';
 
 
 export const SportsEvents = ({ navigation, route }) => {
-    const userId = useSelector(selectUserId);
     const { selectedDate, formattedDate } = route.params;
-    const { eventsByUser, loadEvents, errorInEvents, getEvents } = useSportEvents(userId);
+    const { eventsByUser, loadEvents, errorInEvents, getEvents } = useSportEvents();
     const [isLoading, setIsLoading] = useState(true);
     const { showDialogError } = AlertNotification();
 
