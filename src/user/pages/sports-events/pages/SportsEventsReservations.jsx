@@ -2,19 +2,21 @@ import React, { useEffect, useState } from 'react'
 import { StyleSheet, Text, TouchableOpacity, View, ScrollView } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { GlobalStyles } from '../../../../styles/GlobalStyles';
-import { useSportEvents } from '../hooks/useSportsEvents';
+import { useSelector } from 'react-redux';
+import { selectUserId } from '../../../helpers/userSelectors';
+import { useSportsEventsReservations } from '../hooks/useSportsEventsReservations';
 import { Text as CardText } from 'react-native-paper';
 import { Card } from 'react-native-paper';
 import { Spineer } from '../../../../utils/Spineer';
 import { AlertNotification } from '../../../../utils/AlertNotification';
 
 
-export const SportsEvents = ({ navigation, route }) => {
-    const { selectedDate, formattedDate } = route.params;
-    const { eventsByUser, loadEvents, errorInEvents, getEvents } = useSportEvents();
+export const SportsEventsReservations = ({ navigation, route }) => {
+    // const { selectedDate, formattedDate } = route.params;
+    const userId = (useSelector(selectUserId));
+    const { eventsReservationsByUser, loadEvents, errorInEvents, getEventsReservations } = useSportsEventsReservations(userId);
     const [isLoading, setIsLoading] = useState(true);
     const { showDialogError } = AlertNotification();
-
     const formattedDateTwo = (dateString) => {
         const options = { year: 'numeric', month: 'long', day: 'numeric' };
         const date = new Date(dateString);
@@ -23,19 +25,19 @@ export const SportsEvents = ({ navigation, route }) => {
     };
 
 
-    const eventDate = formattedDateTwo(selectedDate);
+    // const eventDate = formattedDateTwo(selectedDate);
 
     useEffect(() => {
-        getEvents(formattedDate);
+        getEventsReservations();
     }, []);
 
     useEffect(() => {
         if (!loadEvents) {
             setIsLoading(false);
-            if (eventsByUser.length === 0) {
+            if (eventsReservationsByUser.length === 0) {
                 showDialogError(
                     '¡Aviso importante!',
-                    'No hay eventos deportivos disponibles para este día.'
+                    'No tienes eventos deportivos Reservados aun.'
                 );
             }
         }
@@ -51,21 +53,21 @@ export const SportsEvents = ({ navigation, route }) => {
                     <Icon name="arrow-left" style={styles.icon} />
                 </TouchableOpacity>
             </View>
-            <Text style={[styles.eventos]}>Eventos Deportivos</Text>
-            <Text style={GlobalStyles.smLetters}>Selecciona el evento deportivo en el que {'\n'}deseas participar el día</Text>
-            <Text style={styles.negrilla}>{eventDate}</Text>
+            <Text style={[styles.eventos, { textAlign: 'center' }]}>Reservas:{'\n'}Eventos Deportivos</Text>
+            <Text style={GlobalStyles.smLetters}>Estos son los eventos deportivos en los {'\n'}que reservaste tu cupo.</Text>
+            {/* <Text style={styles.negrilla}>{eventDate}</Text> */}
 
             <Spineer isLoading={isLoading} />
-            {!isLoading && eventsByUser.length === 0 && (
+            {!isLoading && eventsReservationsByUser.length === 0 && (
                 <View style={styles.aviso}>
-                    <Text style={styles.avisoTexto}>Por favor elige otra fecha</Text>
+                    <Text style={styles.avisoTexto}>Realiza tus reservas en el menú{'\n'}Servicios/EventosDeportivos</Text>
 
                 </View>
             )}
             {!isLoading && (
                 <ScrollView>
-                    {eventsByUser.map(item => (
-                        <TouchableOpacity key={item.productId} onPress={() => navigation.navigate('EventDetail', { eventDetails: item, eventDate })} >
+                    {eventsReservationsByUser.map(item => (
+                        <TouchableOpacity key={item.productId}>
                             <Card accessibilityLabel="event" style={GlobalStyles.card}>
                                 <Card.Content>
                                     <CardText style={GlobalStyles.cardText} variant="bodyMedium">{item.name}</CardText>

@@ -1,31 +1,27 @@
-
-
 import axios from "axios";
 import { useState } from "react";
 import { AlertNotification } from "../../../../utils/AlertNotification";
 import { API_URL_SERVICE } from "@env";
 
-export const useSportEvents = () => {
+export const useSportsEventsReservations = (userId) => {
     const urlAPI = API_URL_SERVICE
     const { showDialogError } = AlertNotification();
-    const [eventsByUser, setEventsByUser] = useState([]);
+    const [eventsReservationsByUser, setEventsReservationsByUser] = useState([]);
     const [loadEvents, setLoadEvents] = useState(true);
     const [errorInEvents, setErrorInEvents] = useState(false);
 
-    const getEvents = async (selectedDate) => {
+    const getEventsReservations = async () => {
         setLoadEvents(true);
         const queryEvents = {
-            serviceTypes: ["93fc91b3-47dd-49e8-9589-01671491cc73"],
-            startDateTime: selectedDate,
-            endDateTime: selectedDate,
-
+            userId: userId,
+            serviceTypes: ["93fc91b3-47dd-49e8-9589-01671491cc73"]
         };
 
         axios
             .post(`${urlAPI}/api/v1/productService/getFilteredList`, queryEvents)
             .then((response) => {
                 const events = response.data;
-                setEventsByUser(events);
+                setEventsReservationsByUser(events);
                 setLoadEvents(false);
                 setErrorInEvents(false);
             })
@@ -34,15 +30,15 @@ export const useSportEvents = () => {
                 setLoadEvents(false);
                 showDialogError(
                     "Algo sucedio...",
-                    "Lo sentimos no pudimos traer los eventos intenta en otro momento"
+                    "Lo sentimos no pudimos traer tus reservas de eventos"
                 );
             });
     };
 
     return {
-        eventsByUser,
+        eventsReservationsByUser,
         loadEvents,
         errorInEvents,
-        getEvents,
+        getEventsReservations,
     };
 };
