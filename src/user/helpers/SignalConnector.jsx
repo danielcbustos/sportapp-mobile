@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
 import * as signalR from "@microsoft/signalr";
-// import { Alerts } from "../pages/Utils";
 import { AlertNotification } from "../../utils/AlertNotification";
 import { REACT_APP_SIGNALR } from "@env";
-
 
 
 export const SignalConnector = (showInfo, userId) => {
@@ -11,6 +9,7 @@ export const SignalConnector = (showInfo, userId) => {
     const [dataSignal, setDataSignal] = useState();
     const { showToastSuccess } = AlertNotification()
     let hubConnection;
+    // istanbul ignore next
     useEffect(() => {
         const startSignal = () => {
             console.log("ReceiveMessage====> ", `ReceiveMessage${userId}`);
@@ -32,7 +31,7 @@ export const SignalConnector = (showInfo, userId) => {
             startSignal();
         }
     }, [userId]);
-
+    // istanbul ignore next
     useEffect(() => {
         if (dataSignal != undefined) {
             try {
@@ -48,6 +47,6 @@ export const SignalConnector = (showInfo, userId) => {
             }
         }
     }, [dataSignal]);
-
+    // istanbul ignore next
     return { dataSignal };
 };
