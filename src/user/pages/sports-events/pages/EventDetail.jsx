@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { ImageBackground, StyleSheet, TouchableOpacity, View } from 'react-native'
+import { ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native'
 import { GlobalStyles } from '../../../../styles/GlobalStyles'
 import { Button } from "react-native-paper";
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -55,42 +55,42 @@ export const EventDetail = ({ navigation, route }) => {
                     <Icon name="arrow-left" style={styles.icon} />
                 </TouchableOpacity>
             </View>
+            <ScrollView>
+                <Card style={[GlobalStyles.card, { marginTop: 15 }]}>
+                    <Card.Cover style={{ height: 320 }} source={{ uri: eventDetails.picture }} />
+                </Card>
 
-            <Card style={[GlobalStyles.card, { marginTop: 15 }]}>
-                <Card.Cover style={{ height: 320 }} source={{ uri: eventDetails.picture }} />
-            </Card>
+                <Spineer isLoading={loading} />
+                {!loading && (
+                    <View style={{ flexDirection: 'column', justifyContent: 'flex-start', width: '95%' }}>
 
-            <Spineer isLoading={loading} />
-            {!loading && (
-                <View style={{ flexDirection: 'column', justifyContent: 'flex-start', width: '95%' }}>
+                        <Text style={styles.eventName}>{eventDetails.name}</Text>
+                        <View style={{ flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', width: '100%' }}>
+                            <Icon name="map" style={styles.icon} />
+                            <Text style={styles.smLetters}>{cityName[0].name}  </Text>
+                        </View>
 
-                    <Text style={styles.eventName}>{eventDetails.name}</Text>
-                    <View style={{ flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', width: '100%' }}>
-                        <Icon name="map" style={styles.icon} />
-                        <Text style={styles.smLetters}>{cityName[0].name}  </Text>
+                        <View style={{ flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', width: '100%' }}>
+                            <Icon name="timer" style={styles.icon} />
+                            <Text style={styles.smLetters}>{eventDate} - {eventHour}</Text>
+                        </View>
+
+                        <Text style={styles.descripcion}>Descripción</Text>
+                        <Text style={styles.smLetters}>{eventDetails.description}</Text>
                     </View>
+                )}
+                <Button
+                    style={styles.btnLarge}
+                    labelStyle={GlobalStyles.btnLayerStyle}
+                    contentStyle={GlobalStyles.btnLarge1}
+                    onPress={() => {
+                        suscribeEvent(event);
 
-                    <View style={{ flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', width: '100%' }}>
-                        <Icon name="timer" style={styles.icon} />
-                        <Text style={styles.smLetters}>{eventDate} - {eventHour}</Text>
-                    </View>
-
-                    <Text style={styles.descripcion}>Descripción</Text>
-                    <Text style={styles.smLetters}>{eventDetails.description}</Text>
-                </View>
-            )}
-            <Button
-                style={styles.btnLarge}
-                labelStyle={GlobalStyles.btnLayerStyle}
-                contentStyle={GlobalStyles.btnLarge1}
-                onPress={() => {
-                    suscribeEvent(event);
-
-                }}
-            >
-                Reservar
-            </Button>
-
+                    }}
+                >
+                    Reservar
+                </Button>
+            </ScrollView>
         </View>
     )
 }
