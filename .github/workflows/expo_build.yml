@@ -25,7 +25,11 @@ jobs:
         run: npm install -g expo-cli
 
       - name: Authenticate with Expo
-        run: expo login --username ${{ secrets.EXPO_USERNAME }} --password ${{ secrets.EXPO_PASSWORD }}
+        uses: expo/expo-github-action@v8
+        with:
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+
       - name: Verify code coverage
         run: |
           # Ejecuta tus pruebas para generar la cobertura 
