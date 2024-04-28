@@ -1,24 +1,20 @@
-import { AnimatedCircularProgress } from 'react-native-circular-progress';
 import React from 'react'
-import { Text } from 'react-native';
-
-export const CircularProgress = ({ fill, marginLeft, text }) => {
+import AnimatedProgressWheel from 'react-native-progress-wheel';
+export const CircularProgress = ({ progress, subtitle, max }) => {
     return (
-        <AnimatedCircularProgress
+        <AnimatedProgressWheel
+
             size={150}
             width={15}
-            fill={fill}
-            rotation={360}
-            tintColor="#EA9354"
+            showProgressLabel={true}
+            progress={progress}
+            rotation={"-90deg"}
+            subtitle={subtitle}
+            max={max}
+            color="#EA9354"
             duration={800}
             backgroundColor="#5DADE2"
-            style={{ marginLeft }}
         >
-            {
-                () => (
-                    <Text style={{ color: 'black', fontSize: 22, fontWeight: 'bold' }}>{`${text}`}</Text> // Aquí el texto es dinámico
-                )
-            }
-        </AnimatedCircularProgress>
+        </AnimatedProgressWheel>
     )
 }

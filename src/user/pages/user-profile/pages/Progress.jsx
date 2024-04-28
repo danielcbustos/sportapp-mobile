@@ -10,7 +10,6 @@ import { CircularProgress } from '../../../../components/CircularProgress';
 import { Button } from 'react-native-paper';
 
 
-
 export const Progress = ({ navigation }) => {
     const name = useSelector(selectUserName)
     const userId = useSelector(selectUserId)
@@ -18,23 +17,16 @@ export const Progress = ({ navigation }) => {
 
     const kgOfMuscleGained = goalTracking ? goalTracking.kgOfMuscleGained : 0;
     const kgOfMuscleGainedMax = 15
-    const kgOfMuscleGainedPerc = kgOfMuscleGained * 100 / kgOfMuscleGainedMax
-    const textKgOfMuscleGainedPerc = `${kgOfMuscleGained}/${kgOfMuscleGainedMax}`
 
     const prInFlatBenchPress = goalTracking ? goalTracking.prInFlatBenchPress : 0;
     const prInFlatBenchPressMax = 100
-    const prInFlatBenchPressPerc = prInFlatBenchPress * 100 / prInFlatBenchPressMax
-    const textPrInFlatBenchPress = `${prInFlatBenchPress}/${prInFlatBenchPressMax}`
 
     const cmsInArm = goalTracking ? goalTracking.cmsInArm : 0;
     const cmsInArmMax = 40
-    const cmsInArmPerc = cmsInArm * 100 / cmsInArmMax
-    const textCmsInArm = `${cmsInArm}/${cmsInArmMax}`
 
     const prInSquad = goalTracking ? goalTracking.prInSquad : 0;
     const prInSquadMax = 200
-    const prInSquadPerc = prInSquad * 100 / prInSquadMax
-    const textprInSquad = `${prInSquad}/${prInSquadMax}`
+
     useEffect(() => {
         fetchGoalTracking(userId)
 
@@ -56,13 +48,13 @@ export const Progress = ({ navigation }) => {
             <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', width: '100%', marginBottom: 20 }}>
                 <View style={{ flexDirection: 'column', alignItems: 'center' }}>
                     <Text style={styles.textHead}>Kgs de musculo{'\n'}ganado</Text>
-                    <CircularProgress fill={kgOfMuscleGainedPerc} marginLeft={0} text={textKgOfMuscleGainedPerc} ></CircularProgress>
+                    <CircularProgress progress={kgOfMuscleGained} subtitle={`/${kgOfMuscleGainedMax}`} max={kgOfMuscleGainedMax} ></CircularProgress>
                 </View>
 
-                <View style={{ flexDirection: 'column', alignItems: 'center' }}>
+                <View style={{ flexDirection: 'column', alignItems: 'center', marginLeft: 20 }}>
                     <Text style={[styles.textHead, { marginLeft: 15 }]} >PR en press{'\n'}banca plano</Text>
 
-                    <CircularProgress fill={prInFlatBenchPressPerc} marginLeft={15} text={textPrInFlatBenchPress}></CircularProgress>
+                    <CircularProgress progress={prInFlatBenchPress} subtitle={`/${prInFlatBenchPressMax}`} max={prInFlatBenchPressMax}  ></CircularProgress>
                 </View>
 
 
@@ -70,13 +62,13 @@ export const Progress = ({ navigation }) => {
             <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', width: '100%', marginBottom: 20 }}>
                 <View style={{ flexDirection: 'column', alignItems: 'center' }}>
                     <Text style={styles.textHead}>Cms de brazo</Text>
-                    <CircularProgress fill={cmsInArmPerc} marginLeft={0} text={textCmsInArm}></CircularProgress>
+                    <CircularProgress progress={cmsInArm} subtitle={`/${cmsInArmMax}`} max={cmsInArmMax}  ></CircularProgress>
                 </View>
 
-                <View style={{ flexDirection: 'column', alignItems: 'center' }}>
+                <View style={{ flexDirection: 'column', alignItems: 'center', marginLeft: 20 }}>
                     <Text style={[styles.textHead, { marginLeft: 15 }]}>PR en sentadilla</Text>
 
-                    <CircularProgress fill={prInSquadPerc} marginLeft={15} text={textprInSquad}></CircularProgress>
+                    <CircularProgress progress={prInSquad} subtitle={`/${prInSquadMax}`} max={prInSquadMax} ></CircularProgress>
                 </View>
 
 

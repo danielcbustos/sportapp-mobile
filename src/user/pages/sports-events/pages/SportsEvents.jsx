@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { StyleSheet, Text, TouchableOpacity, View, ScrollView } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { GlobalStyles } from '../../../../styles/GlobalStyles';
-import { useSelector } from 'react-redux';
-import { selectUserId, selectUserName } from '../../../helpers/userSelectors';
 import { useSportEvents } from '../hooks/useSportsEvents';
 import { Text as CardText } from 'react-native-paper';
 import { Card } from 'react-native-paper';
@@ -12,9 +10,8 @@ import { AlertNotification } from '../../../../utils/AlertNotification';
 
 
 export const SportsEvents = ({ navigation, route }) => {
-    const userId = useSelector(selectUserId);
     const { selectedDate, formattedDate } = route.params;
-    const { eventsByUser, loadEvents, errorInEvents, getEvents } = useSportEvents(userId);
+    const { eventsByUser, loadEvents, errorInEvents, getEvents } = useSportEvents();
     const [isLoading, setIsLoading] = useState(true);
     const { showDialogError } = AlertNotification();
 

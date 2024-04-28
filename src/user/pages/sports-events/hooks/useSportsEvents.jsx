@@ -5,7 +5,7 @@ import { useState } from "react";
 import { AlertNotification } from "../../../../utils/AlertNotification";
 import { API_URL_SERVICE } from "@env";
 
-export const useSportEvents = (userId) => {
+export const useSportEvents = () => {
     const urlAPI = API_URL_SERVICE
     const { showDialogError } = AlertNotification();
     const [eventsByUser, setEventsByUser] = useState([]);
@@ -15,13 +15,12 @@ export const useSportEvents = (userId) => {
     const getEvents = async (selectedDate) => {
         setLoadEvents(true);
         const queryEvents = {
-            user: userId,
             serviceTypes: ["93fc91b3-47dd-49e8-9589-01671491cc73"],
             startDateTime: selectedDate,
             endDateTime: selectedDate,
 
         };
-        // `https://localhost:32769/api/v1/productService/getFilteredList`
+
         axios
             .post(`${urlAPI}/api/v1/productService/getFilteredList`, queryEvents)
             .then((response) => {
