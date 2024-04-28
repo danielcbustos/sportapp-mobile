@@ -1,0 +1,41 @@
+name: Expo EAS Build
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "18"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install Expo CLI
+        run: npm install -g expo-cli
+
+      - name: Authenticate with Expo
+        run: expo login --username ${{ secrets.EXPO_USERNAME }} --password ${{ secrets.EXPO_PASSWORD }}
+      - name: Verify code coverage
+        run: |
+          # Ejecuta tus pruebas para generar la cobertura 
+          npm test --coverage
+          coverage=$(cat coverage/coverage-summary.json | jq -r '.total.lines.pct')
+          if (( $(echo "$coverage > 70" | bc -l) )); then
+            echo "La cobertura es mayor al 70%."
+          else
+            echo "La cobertura es menor al 70%."
+            exit 1
+          fi
+      - name: Build APK
+        run: expo eas build -p android --profile preview
