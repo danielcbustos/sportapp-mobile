@@ -4,15 +4,30 @@ import { GlobalStyles } from '../../../../styles/GlobalStyles'
 import { Button } from "react-native-paper";
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { Text } from 'react-native';
-import { Text as CardText } from 'react-native-paper';
 import { Card } from 'react-native-paper';
 import { useCityByUser } from '../../../hooks/useCityById';
 import { Spineer } from '../../../../utils/Spineer';
+import { useSuscribeEvents } from '../hooks/useSuscribeEvents';
+import { selectUserId } from '../../../helpers/userSelectors';
+import { useSelector } from 'react-redux';
 
 
 export const EventDetail = ({ navigation, route }) => {
+    const userId = (useSelector(selectUserId));
     const { eventDetails, eventDate } = route.params;
     const { cityName, loading, fetchCity } = useCityByUser();
+    const { suscribeEvent, eventSuscription } = useSuscribeEvents(navigation);
+    const event = {
+        productId: eventDetails.productId,
+        name: eventDetails.name,
+        categoryId: eventDetails.category.id,
+        categoryName: eventDetails.category.name,
+        userId: userId,
+        planId: eventDetails.plan.id,
+        planName: eventDetails.plan.name,
+        startDateTime: eventDetails.startDateTime,
+        endDateTime: eventDetails.endDateTime
+    };
 
     const formatTime = (dateString) => {
         const date = new Date(dateString);
@@ -31,6 +46,7 @@ export const EventDetail = ({ navigation, route }) => {
     useEffect(() => {
         fetchCity(eventDetails.cityId);
     }, []);
+
 
     return (
         <View style={GlobalStyles.sportApp}>
@@ -67,7 +83,10 @@ export const EventDetail = ({ navigation, route }) => {
                 style={styles.btnLarge}
                 labelStyle={GlobalStyles.btnLayerStyle}
                 contentStyle={GlobalStyles.btnLarge1}
-                onPress={() => navigation.navigate('UserHome')}
+                onPress={() => {
+                    suscribeEvent(event);
+
+                }}
             >
                 Reservar
             </Button>

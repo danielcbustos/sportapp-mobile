@@ -17,7 +17,7 @@ export const Messages = ({ navigation }) => {
                 </TouchableOpacity>
             </View>
             <View style={styles.aviso}>
-                <Text style={styles.avisoTexto}>No tienes Mensajes</Text>
+                <Text style={styles.avisoTexto}>No tienes Mensajes nuevos</Text>
 
             </View>
         </View>

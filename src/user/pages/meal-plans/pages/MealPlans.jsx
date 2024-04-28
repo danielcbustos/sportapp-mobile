@@ -12,13 +12,12 @@ import { useMealPlans } from '../hooks/useMealPlans';
 
 
 export const MealPlans = ({ navigation }) => {
-    const userId = useSelector(selectUserId);
     const { mealPlansByUser, loadMealPlans, errorInMealPlans, getMealPlans } = useMealPlans();
     const [isLoading, setIsLoading] = useState(true);
     const { showDialogError } = AlertNotification();
 
     useEffect(() => {
-        getMealPlans(userId);
+        getMealPlans();
     }, []);
 
     return (
