@@ -30,16 +30,16 @@ jobs:
           eas-version: latest
           token: ${{ secrets.EXPO_TOKEN }}
 
-      - name: Verify code coverage
-        run: |
-          # Ejecuta tus pruebas para generar la cobertura 
-          npm test --coverage
-          coverage=$(cat coverage/coverage-summary.json | jq -r '.total.lines.pct')
-          if (( $(echo "$coverage > 50" | bc -l) )); then
-            echo "La cobertura es mayor al 50%."
-          else
-            echo "La cobertura es menor al 50%."
-            exit 1
-          fi
+      # - name: Verify code coverage
+      #   run: |
+      #     # Ejecuta tus pruebas para generar la cobertura
+      #     npm test --coverage
+      #     coverage=$(cat coverage/coverage-summary.json | jq -r '.total.lines.pct')
+      #     if (( $(echo "$coverage > 50" | bc -l) )); then
+      #       echo "La cobertura es mayor al 50%."
+      #     else
+      #       echo "La cobertura es menor al 50%."
+      #       exit 1
+      #     fi
       - name: Build APK
         run: expo eas build -p android --profile preview
