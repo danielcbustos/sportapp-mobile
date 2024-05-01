@@ -35,7 +35,7 @@ describe("useCityByUser", () => {
     expect(result.current.cityName).toBe(mockCityData);
 
     expect(axios.get).toHaveBeenCalledWith(
-      `https://sportappusersapi.azurewebsites.net/api/Geography/CitiesById/${mockCityId}`,
+      `https://usersapi20240429224611.azurewebsites.net/api/Geography/CitiesById/${mockCityId}`,
       { headers: { Authorization: "Bearer mock-token" } }
     );
   });
