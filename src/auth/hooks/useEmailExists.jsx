@@ -6,6 +6,7 @@ const useEmailExists = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [emailExists, setEmailExists] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  // const urlAPI = process.env.API_URL_USER;
   const urlAPI = API_URL_USER;
 
   const validateEmail = async (email) => {
@@ -14,7 +15,6 @@ const useEmailExists = () => {
       const response = await axios.get(`${urlAPI}/api/V1/Account/is-email-unique/${email.trim()}`
       );
       setEmailExists(response.data);
-      // console.log(response.data)
       setErrorMessage("");
     } catch (error) {
       setErrorMessage(error.message);

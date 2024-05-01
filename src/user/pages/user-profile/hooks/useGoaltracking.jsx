@@ -10,7 +10,7 @@ export const useGoalTracking = () => {
     const [goalTracking, setGoalTracking] = useState("");
     const [goalTrackingLoading, setGoalTrackingLoading] = useState(true);
 
-
+    // const urlAPI = process.env.API_URL_USER;
     const urlAPI = API_URL_USER;
 
     const token = (useSelector(selectUserToken));

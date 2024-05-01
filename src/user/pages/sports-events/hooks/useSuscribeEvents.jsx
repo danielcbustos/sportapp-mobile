@@ -7,9 +7,9 @@ import { selectUserToken, selectUserId } from '../../../helpers/userSelectors';
 import { useSelector } from 'react-redux';
 
 export const useSuscribeEvents = (navigation) => {
-
     const { showDialogError, showToastSuccess } = AlertNotification();
     const [eventSuscription, setEventSuscription] = useState(false);
+    // const urlAPI = process.env.API_URL_USER;
     const urlAPI = API_URL_USER
     const token = (useSelector(selectUserToken));
     let tokenPayLoad = { headers: { Authorization: `Bearer ${token}` } };

@@ -6,6 +6,7 @@ import { AlertNotification } from "../../../../utils/AlertNotification";
 import { API_URL_SERVICE } from "@env";
 
 export const useSportEvents = () => {
+    // const urlAPI = process.env.REACT_APP_API_URL_SERVICE;
     const urlAPI = API_URL_SERVICE
     const { showDialogError } = AlertNotification();
     const [eventsByUser, setEventsByUser] = useState([]);

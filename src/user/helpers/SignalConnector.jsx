@@ -5,7 +5,10 @@ import { REACT_APP_SIGNALR } from "@env";
 
 
 export const SignalConnector = (showInfo, userId) => {
-    const urlSignal = REACT_APP_SIGNALR;
+    // const urlSignal = process.env.REACT_APP_SIGNALR;
+    const urlSignal = 'https://sportappnotificationsapi20240430022527.azurewebsites.net'
+    // const urlSignal = REACT_APP_SIGNALR;
+    console.log(urlSignal)
     const [dataSignal, setDataSignal] = useState();
     const { showToastSuccess } = AlertNotification()
     let hubConnection;
