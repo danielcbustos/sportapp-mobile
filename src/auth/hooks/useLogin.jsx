@@ -15,8 +15,6 @@ const useLogin = () => {
     // const urlAPI = process.env.API_URL_USER;
     const urlAPI = API_URL_USER
 
-    // const urlAPI = "http://localhost:5088"
-
     const LoginUser = async (formCredentials) => {
         setLoadingUser(true);
         setError(null);

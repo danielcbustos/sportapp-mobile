@@ -10,7 +10,7 @@ export const useTypesOfNutrition = () => {
     const [typesOfNutrition, setTypesOfNutrition] = useState([]);
     const [nutritionLoading, setNutritionLoading] = useState(true);
 
-
+    // const urlAPI = process.env.API_URL_USER;
     const urlAPI = API_URL_USER;
 
     const token = (useSelector(selectUserToken));

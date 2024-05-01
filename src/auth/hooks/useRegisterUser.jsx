@@ -4,6 +4,7 @@ import { API_URL_USER } from "@env";
 import { AlertNotification } from "../../utils/AlertNotification";
 
 const useRegisterUser = (initial) => {
+  // const urlAPI = process.env.API_URL_USER;
   const urlAPI = API_URL_USER;
   const [loading, setLoading] = useState(false);
   const [userCreated, setUserCreated] = useState(false);
