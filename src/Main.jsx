@@ -22,6 +22,8 @@ import { useSelector } from "react-redux";
 import { selectUserId } from './user/helpers/userSelectors';
 import { SignalConnector } from './user/helpers/SignalConnector';
 import { Messages } from './user/pages/user-profile/pages/Messages';
+import { SportsPlans } from './user/pages/sports-plans/pages/SportsPlans';
+import { SportsPlansDetail } from './user/pages/sports-plans/pages/SportsPlansDetail';
 
 
 
@@ -91,7 +93,6 @@ const HomeScreen = () => (
 
 );
 const SportAppStack = () => (
-
     <Stack.Navigator initialRouteName="Home"
         screenOptions={{ headerShown: false }}>
         <Stack.Screen name="UserHome" component={UserHome} />
@@ -102,7 +103,7 @@ const SportAppStack = () => (
         <Stack.Screen name="MealPlans" component={MealPlans} />
         <Stack.Screen name="MealPlanDetail" component={MealPlanDetail} />
         <Stack.Screen name="Progress" component={Progress} />
+        <Stack.Screen name="SportsPlans" component={SportsPlans} />
+        <Stack.Screen name="SportsPlansDetail" component={SportsPlansDetail} />
     </Stack.Navigator>
-
-
 );
