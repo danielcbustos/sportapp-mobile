@@ -22,6 +22,7 @@ import { useSelector } from "react-redux";
 import { selectUserId } from './user/helpers/userSelectors';
 import { SignalConnector } from './user/helpers/SignalConnector';
 import { Messages } from './user/pages/user-profile/pages/Messages';
+import { ExternalAppInformation } from './user/pages/user-profile/pages/ExternalAppInformation';
 
 
 
@@ -102,6 +103,7 @@ const SportAppStack = () => (
         <Stack.Screen name="MealPlans" component={MealPlans} />
         <Stack.Screen name="MealPlanDetail" component={MealPlanDetail} />
         <Stack.Screen name="Progress" component={Progress} />
+        <Stack.Screen name="ExternalAppInformation" component={ExternalAppInformation} />
     </Stack.Navigator>
 
 
