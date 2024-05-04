@@ -23,6 +23,7 @@ import { selectUserId } from './user/helpers/userSelectors';
 import { SignalConnector } from './user/helpers/SignalConnector';
 import { Messages } from './user/pages/user-profile/pages/Messages';
 import { ExternalAppInformation } from './user/pages/user-profile/pages/ExternalAppInformation';
+import { HeartRate } from './user/pages/user-profile/pages/HeartRate';
 
 
 
@@ -104,6 +105,7 @@ const SportAppStack = () => (
         <Stack.Screen name="MealPlanDetail" component={MealPlanDetail} />
         <Stack.Screen name="Progress" component={Progress} />
         <Stack.Screen name="ExternalAppInformation" component={ExternalAppInformation} />
+        <Stack.Screen name="HeartRate" component={HeartRate} />
     </Stack.Navigator>
 
 
