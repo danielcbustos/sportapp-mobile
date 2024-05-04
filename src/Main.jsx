@@ -22,6 +22,8 @@ import { useSelector } from "react-redux";
 import { selectUserId } from './user/helpers/userSelectors';
 import { SignalConnector } from './user/helpers/SignalConnector';
 import { Messages } from './user/pages/user-profile/pages/Messages';
+import { ExternalAppInformation } from './user/pages/user-profile/pages/ExternalAppInformation';
+import { HeartRate } from './user/pages/user-profile/pages/HeartRate';
 import { SportsPlans } from './user/pages/sports-plans/pages/SportsPlans';
 import { SportsPlansDetail } from './user/pages/sports-plans/pages/SportsPlansDetail';
 
@@ -103,6 +105,8 @@ const SportAppStack = () => (
         <Stack.Screen name="MealPlans" component={MealPlans} />
         <Stack.Screen name="MealPlanDetail" component={MealPlanDetail} />
         <Stack.Screen name="Progress" component={Progress} />
+        <Stack.Screen name="ExternalAppInformation" component={ExternalAppInformation} />
+        <Stack.Screen name="HeartRate" component={HeartRate} />
         <Stack.Screen name="SportsPlans" component={SportsPlans} />
         <Stack.Screen name="SportsPlansDetail" component={SportsPlansDetail} />
     </Stack.Navigator>

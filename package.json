@@ -38,6 +38,7 @@
     "react-native-dotenv": "^3.4.11",
     "react-native-loading-spinner-overlay": "^3.0.1",
     "react-native-paper": "^5.12.3",
+    "react-native-progress": "^5.0.1",
     "react-native-progress-circle": "^2.1.0",
     "react-native-progress-wheel": "^2.1.0",
     "react-native-responsive-screen": "^1.4.2",
