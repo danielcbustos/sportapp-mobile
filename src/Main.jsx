@@ -26,6 +26,8 @@ import { ExternalAppInformation } from './user/pages/user-profile/pages/External
 import { HeartRate } from './user/pages/user-profile/pages/HeartRate';
 import { SportsPlans } from './user/pages/sports-plans/pages/SportsPlans';
 import { SportsPlansDetail } from './user/pages/sports-plans/pages/SportsPlansDetail';
+import { UserProfile } from './user/pages/user-profile/pages/UserProfile';
+import { SportsPlansProfile } from './user/pages/user-profile/pages/SportsPlansProfile';
 
 
 
@@ -78,8 +80,8 @@ const HomeScreen = () => (
 
             tabBarLabel: ({ focused, color }) => {
                 const labelStyle = {
-                    fontSize: focused ? 10 : 10, // Tamaño de letra aumentado si la pestaña está enfocada
-                    color: focused ? '#EA9354' : '#666666', // Color predeterminado
+                    fontSize: focused ? 10 : 10,
+                    color: focused ? '#EA9354' : '#666666',
                 };
                 return <Text style={labelStyle}>{route.name}</Text>;
             },
@@ -89,7 +91,7 @@ const HomeScreen = () => (
         <Tab.Screen name="Inicio" component={SportAppStack} options={{ headerShown: false }} />
         <Tab.Screen name="Historial" component={Historical} options={{ headerShown: false }} />
         <Tab.Screen name="Mensajes" component={Messages} options={{ headerShown: false }} />
-        <Tab.Screen name="Perfil" component={UserMealProfile} options={{ headerShown: false }} />
+        <Tab.Screen name="Perfil" component={UserProfile} options={{ headerShown: false }} />
     </Tab.Navigator>
 
 
@@ -109,5 +111,7 @@ const SportAppStack = () => (
         <Stack.Screen name="HeartRate" component={HeartRate} />
         <Stack.Screen name="SportsPlans" component={SportsPlans} />
         <Stack.Screen name="SportsPlansDetail" component={SportsPlansDetail} />
+        <Stack.Screen name="UserMealProfile" component={UserMealProfile} />
+        <Stack.Screen name="SportsPlansProfile" component={SportsPlansProfile} />
     </Stack.Navigator>
 );
