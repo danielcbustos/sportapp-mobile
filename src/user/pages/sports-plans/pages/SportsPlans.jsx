@@ -6,16 +6,16 @@ import { Text as CardText } from 'react-native-paper';
 import { Card } from 'react-native-paper';
 import { Spineer } from '../../../../utils/Spineer';
 import { AlertNotification } from '../../../../utils/AlertNotification';
-import { useMealPlans } from '../hooks/useMealPlans';
+import { useSportsPlans } from '../hooks/useSportsPlans';
 
 
-export const MealPlans = ({ navigation }) => {
-    const { mealPlansByUser, loadMealPlans, errorInMealPlans, getMealPlans } = useMealPlans();
+export const SportsPlans = ({ navigation }) => {
+    const { mealPlansByUser, loadMealPlans, errorInMealPlans, getSportsPlans } = useSportsPlans()
     const [isLoading, setIsLoading] = useState(true);
     const { showDialogError } = AlertNotification();
 
     useEffect(() => {
-        getMealPlans();
+        getSportsPlans();
     }, []);
 
     return (
@@ -26,9 +26,10 @@ export const MealPlans = ({ navigation }) => {
                     <Icon name="arrow-left" style={styles.icon} />
                 </TouchableOpacity>
             </View>
-            <Text style={[styles.planesAlimenticios]}>Planes Alimenticios</Text>
-            <Text style={GlobalStyles.smLetters}>Estos son los planes alimenticios que te{'\n'}recomendamos de acuerdo a la información{'\n'}que proporcionaste
-            </Text>
+            <Text style={[styles.planesAlimenticios]}>Rutinas Deportivas</Text>
+            <Text style={GlobalStyles.smLetters}>Estos son las rutinas deportivas que te{'\n'}
+                recomendamos de acuerdo a la información{'\n'}
+                que proporcionaste en tu registro </Text>
 
 
             <Spineer isLoading={loadMealPlans} />
@@ -37,9 +38,9 @@ export const MealPlans = ({ navigation }) => {
             <ScrollView>
                 {mealPlansByUser.map(item => (
                     <TouchableOpacity key={item.productId}
-                        onPress={() => navigation.navigate('MealPlanDetail', { mealPlanDetails: item })}
+                        onPress={() => navigation.navigate('SportsPlanDetail', { mealPlanDetails: item })}
                     >
-                        <Card accessibilityLabel="mealPlan" style={GlobalStyles.card}>
+                        <Card accessibilityLabel="sportsPlan" style={GlobalStyles.card}>
                             <Card.Content>
                                 <CardText style={GlobalStyles.cardText} variant="bodyMedium">{item.name}</CardText>
                             </Card.Content>

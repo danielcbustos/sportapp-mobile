@@ -20,7 +20,8 @@ import {
 } from "react-native-responsive-screen";
 import { useGetUserProfile } from '../hooks/useGetUserProfile';
 import { useUpdateMealProfile } from '../hooks/useUpdateMealProfile';
-export const UserMealProfile = ({ navigation }) => {
+export const UserMealProfile = ({ navigation, route }) => {
+    const formData = route.params;
     const userId = useSelector(selectUserId)
     const name = useSelector(selectUserName)
     const lastname = useSelector(selectUserLastName)
@@ -37,8 +38,6 @@ export const UserMealProfile = ({ navigation }) => {
     const { userProfile, getUserLoading, fetchUserProfile } = useGetUserProfile();
     const { mealProfileUpdated, mealProfileLoading, updateMealProfile } = useUpdateMealProfile()
     const mealProfileValidationSchema = yup.object().shape({
-        // calories: yup.string().required("Las calorias son requerida"),
-        // nutritionType: yup.string().required("El tipo de dieta es requerido"),
     });
 
     const submitMealProfile = async () => {
@@ -48,10 +47,10 @@ export const UserMealProfile = ({ navigation }) => {
             lastName: lastname,
             email: email,
             phoneNumber: "",
-            dateOfBirth: "2005-04-18T00:00:00+00:00",
-            genreId: "ad14435c-b91a-45b9-b440-3b67d5f43dcb",
-            age: 19,
-            countryId: "710c238d-447e-4b64-99e8-19655514c3c2",
+            dateOfBirth: `${2024 - formData.formData.age}-04-18T00:00:00+00:00`,
+            genreId: formData.formData.genre,
+            age: formData.formData.age,
+            countryId: formData.formData.country,
             stateId: "f70c5f4e-90ce-4a70-9a4c-b47a98d35dd5",
             cityId: "bb1b5f76-2b95-4782-8273-714d3d6e5373",
             nutrionalProfile: {
@@ -62,14 +61,14 @@ export const UserMealProfile = ({ navigation }) => {
             },
             nutricionalAllergies: formValues.mealAllergies,
             activities: [],
-            goals: [],
+            goals: formData.formData.goals,
             sportProfile: {
                 excerciseByWeek: 0,
-                physicalLevelId: "a75fcf31-da27-4ac6-b914-9cdb12776cd2",
+                physicalLevelId: formData.formData.physicalLevels,
                 hasInjuries: false,
                 whatInjuries: "",
-                weight: 0,
-                heigth: 0,
+                weight: formData.formData.weight,
+                heigth: formData.formData.heigth,
             },
         }
 

@@ -19,7 +19,7 @@ export const Services = ({ navigation }) => {
             <Text style={GlobalStyles.smLetters}>Te ofrecemos los siguientes servicios en{'\n'}Sport App, ¡disfrutalos!</Text>
 
             <ScrollView>
-                <TouchableOpacity  >
+                <TouchableOpacity onPress={() => navigation.navigate('SportsPlans')} >
                     <Card style={GlobalStyles.card}>
                         <Card.Content>
                             <CardText style={GlobalStyles.cardText} variant="bodyMedium">Rutinas Deportivas</CardText>
