@@ -47,7 +47,7 @@ export const UserHome = ({ navigation }) => {
                     </Card>
                 </TouchableOpacity>
 
-                <TouchableOpacity  >
+                <TouchableOpacity onPress={() => navigation.navigate('ExternalAppInformation')} >
                     <Card style={GlobalStyles.card}>
                         <Card.Content>
                             <CardText style={GlobalStyles.cardText} variant="bodyMedium">Conectar con App Externa</CardText>
