@@ -108,7 +108,7 @@ export const SportsPlansProfile = ({ navigation, route }) => {
                         </Text>
                         <View style={{ flexDirection: 'column', justifyContent: 'flex-start', width: '100%' }}>
                             <Picker
-                                testID='web_picker'
+                                testID='web_picker_goals'
                                 onValueChange={(value) =>
                                     setFormValues({ ...formValues, physicalLevels: value })
                                 }

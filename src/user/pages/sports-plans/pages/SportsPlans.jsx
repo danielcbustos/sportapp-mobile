@@ -38,11 +38,11 @@ export const SportsPlans = ({ navigation }) => {
             <ScrollView>
                 {mealPlansByUser.map(item => (
                     <TouchableOpacity key={item.productId}
-                        onPress={() => navigation.navigate('SportsPlanDetail', { mealPlanDetails: item })}
+                        onPress={() => navigation.navigate('SportsPlansDetail', { sportPlanDetails: item })}
                     >
                         <Card accessibilityLabel="sportsPlan" style={GlobalStyles.card}>
                             <Card.Content>
-                                <CardText style={GlobalStyles.cardText} variant="bodyMedium">{item.name}</CardText>
+                                <CardText style={GlobalStyles.cardText} variant="bodyMedium">{item.description}</CardText>
                             </Card.Content>
                             <Card.Cover source={{ uri: item.picture }} />
                         </Card>
