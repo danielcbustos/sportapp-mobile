@@ -122,6 +122,7 @@ export const UserProfile = ({ navigation }) => {
                             <Text style={GlobalStyles.label}>Ingresa tu edad:</Text>
 
                             <Input
+                                testID='input_age'
                                 placeholder="Ingresa tu edad"
                                 inputContainerStyle={[errors.age && touched.age ? { borderColor: 'red' } : null, styles.inputText]}
                                 onChangeText={(value) => setFormValues({ ...formValues, age: value })}
@@ -136,6 +137,7 @@ export const UserProfile = ({ navigation }) => {
                             <Text style={GlobalStyles.label}>Ingresa tu peso (en kgs)</Text>
 
                             <Input
+                                testID='input_weight'
                                 placeholder="Ingresa tu peso"
                                 inputContainerStyle={[errors.weight && touched.weight ? { borderColor: 'red' } : null, styles.inputText]}
                                 onChangeText={(value) => setFormValues({ ...formValues, weight: value })}
@@ -149,6 +151,7 @@ export const UserProfile = ({ navigation }) => {
                             <Text style={GlobalStyles.label}>Ingresa tu estatura (en cms)</Text>
 
                             <Input
+                                testID='input_heigth'
                                 placeholder="Ingresa tu estatura"
                                 inputContainerStyle={[errors.heigth && touched.heigth ? { borderColor: 'red' } : null, styles.inputText]}
                                 onChangeText={(value) => setFormValues({ ...formValues, heigth: value })}
