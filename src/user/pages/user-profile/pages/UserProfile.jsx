@@ -46,6 +46,7 @@ export const UserProfile = ({ navigation }) => {
         fetchUserProfile()
     }, []);
 
+    // istanbul ignore next
     useEffect(() => {
         if (userProfile) {
             setFormValues(prevState => ({

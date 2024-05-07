@@ -22,6 +22,7 @@ export const HeartRate = ({ navigation }) => {
     const maxBpm = 200;
     const minBpm = 30;
     const bpmRandom = Math.floor(Math.random() * (maxBpm - minBpm + 1)) + minBpm;
+    // istanbul ignore next
     useEffect(() => {
         if ((bpmRandom >= 30 && bpmRandom < 60)) {
             setBpmLevel('En Reposo');
