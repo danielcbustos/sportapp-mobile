@@ -4,7 +4,7 @@ import { AlertNotification } from "../../../../utils/AlertNotification";
 import { API_URL_SERVICE } from "@env";
 // const urlAPI = process.env.REACT_APP_API_URL_SERVICE;
 export const useSportsPlans = () => {
-    const urlAPI = "http://192.168.0.6:32772"
+    const urlAPI = "http://192.168.0.6:32770"
     const { showDialogError } = AlertNotification();
     const [mealPlansByUser, setMealPlansByUser] = useState([]);
     const [loadMealPlans, setLoadMealPlans] = useState(true);
