@@ -46,9 +46,7 @@ export const SportsPlansDetail = ({ navigation, route }) => {
                     style={styles.btnLarge}
                     labelStyle={GlobalStyles.btnLayerStyle}
                     contentStyle={GlobalStyles.btnLarge1}
-                    onPress={() => {
-
-                    }}
+                    onPress={() => navigation.navigate('RegisterSportsSessions')}
                 >
                     Comenzar entrenamiento
                 </Button>
