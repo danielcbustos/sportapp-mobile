@@ -79,6 +79,7 @@ export const RegisterSportsSessions = ({ navigation }) => {
                     ) : (
                         <>
                             <TouchableOpacity
+                                testID='start'
                                 style={[styles.button, styles.startButton]}
                                 onPress={startStopwatch}
                             >
