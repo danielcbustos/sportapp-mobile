@@ -38,7 +38,7 @@ export const IndicatorsCalculation = ({ navigation, route }) => {
 
                 <View style={{ flexDirection: 'column', alignItems: 'center', marginLeft: 30 }}>
                     <Text style={styles.textHeadTraining} >Total calorias</Text>
-                    <Text style={styles.normalLetters} >{propiedades.totalCalories} kcal</Text>
+                    <Text style={styles.normalLetters} >{propiedades.totalCalories} cal</Text>
 
                     <Text style={styles.textHeadTwoTraining} >Intensidad</Text>
                     <Text style={styles.normalLetters} >{randomIntensity}</Text>
