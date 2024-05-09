@@ -8,7 +8,7 @@ import { useRegisterSportsSessions } from '../hooks/useRegisterSportsSessions';
 
 export const RegisterSportsSessions = ({ navigation }) => {
 
-    const { registerSportsSessions } = useRegisterSportsSessions();
+    const { registerSportsSessions } = useRegisterSportsSessions(navigation);
     const [time, setTime] = useState(0);
     const [running, setRunning] = useState(false);
     const intervalRef = useRef(null);
