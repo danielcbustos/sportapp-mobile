@@ -30,15 +30,20 @@ export const useRegisterSportsSessions = (navigation) => {
         axios
             .post(`${urlAPI}/api/V1/RecordTrainingSession/Save`, sportSession, tokenPayLoad)
             .then((response) => {
-                // navigation.navigate('UserHome');
+                navigation.navigate('IndicatorsCalculation', {
+                    totalCalories: totalCalories,
+                    ftp: ftp,
+                    totalTimeExcercise: totalTimeExcercise,
+                });
                 showToastSuccess(
                     `Excelente entrenamiento ${userName}`,
                     "Mira tu resumen de entrenamiento"
                 );
+
             })
             .catch((error) => {
                 showDialogError(
-                    `Estamoss presentando algunos problemas `,
+                    `Estamos presentando algunos problemas `,
                     "Recuerda iniciar tu entrenamiento"
                 );
             });
