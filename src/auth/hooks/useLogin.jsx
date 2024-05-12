@@ -13,7 +13,7 @@ const useLogin = () => {
     const [userLogged, setUserLogged] = useState(false);
     const [error, setError] = useState(null);
     // const urlAPI = process.env.API_URL_USER;
-    const urlAPI = API_URL_USER
+    const urlAPI = API_URL_USER;
 
     const LoginUser = async (formCredentials) => {
         setLoadingUser(true);

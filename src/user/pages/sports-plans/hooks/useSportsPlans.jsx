@@ -13,7 +13,7 @@ export const useSportsPlans = () => {
     const getSportsPlans = async () => {
         setLoadMealPlans(true);
         const querySportsPlans = {
-            serviceTypes: ["01B50F0D-3226-4DF2-B912-4DA4B37D9BD9"],
+            serviceTypes: ["3040214a-a77d-4549-8f67-6b51f7755a3e"],
         };
         axios
             .post(`${urlAPI}/api/v1/productService/getFilteredList`, querySportsPlans)

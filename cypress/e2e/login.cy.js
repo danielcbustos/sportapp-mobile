@@ -1,4 +1,3 @@
-// const url="http://192.168.0.7:8081"
 const url = "http://localhost:8081";
 describe("Login", () => {
   it("Correct Login", () => {

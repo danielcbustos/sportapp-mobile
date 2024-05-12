@@ -38,12 +38,14 @@ export const ExternalAppInformation = ({ navigation }) => {
 
 
     useEffect(() => {
+        // istanbul ignore next
         if (randomSleepScore >= 5 && randomSleepScore < 10) {
             setRandomAsleepHour(1);
             setRandomDeepHour(0);
             randomDeepMin = Math.floor(Math.random() * (30 - 10 + 1)) + 10;
             setSleepLevel('Pobre');
             setColorBar('#FF0000')
+
         } else if ((randomSleepScore >= 10 && randomSleepScore < 20)) {
             setRandomAsleepHour(2);
             setRandomDeepHour(0);

@@ -21,6 +21,10 @@ describe("Meal Plans", () => {
     cy.wait(2000);
     cy.contains("Perfil").click();
     cy.wait(1000);
+    cy.contains("Continuar").click();
+    cy.wait(1000);
+    cy.contains("Continuar").click();
+    cy.wait(1000);
     cy.contains("alergico").should("exist");
   });
   it("change all fields of meal profile and save", () => {
@@ -36,6 +40,10 @@ describe("Meal Plans", () => {
     cy.contains("Iniciar sesión").click();
     cy.wait(2000);
     cy.contains("Perfil").click();
+    cy.wait(1000);
+    cy.contains("Continuar").click();
+    cy.wait(1000);
+    cy.contains("Continuar").click();
     cy.wait(1000);
     cy.contains("alergico").should("exist");
     cy.wait(500);

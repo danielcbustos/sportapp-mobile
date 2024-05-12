@@ -28,6 +28,8 @@ import { SportsPlans } from './user/pages/sports-plans/pages/SportsPlans';
 import { SportsPlansDetail } from './user/pages/sports-plans/pages/SportsPlansDetail';
 import { UserProfile } from './user/pages/user-profile/pages/UserProfile';
 import { SportsPlansProfile } from './user/pages/user-profile/pages/SportsPlansProfile';
+import { RegisterSportsSessions } from './user/pages/sports-plans/pages/RegisterSportsSessions';
+import { IndicatorsCalculation } from './user/pages/sports-plans/pages/IndicatorsCalculation';
 
 
 
@@ -113,5 +115,7 @@ const SportAppStack = () => (
         <Stack.Screen name="SportsPlansDetail" component={SportsPlansDetail} />
         <Stack.Screen name="UserMealProfile" component={UserMealProfile} />
         <Stack.Screen name="SportsPlansProfile" component={SportsPlansProfile} />
+        <Stack.Screen name="RegisterSportsSessions" component={RegisterSportsSessions} />
+        <Stack.Screen name="IndicatorsCalculation" component={IndicatorsCalculation} />
     </Stack.Navigator>
 );
