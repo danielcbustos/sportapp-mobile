@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux';
 export const useRegisterSportsSessions = (navigation) => {
     const { showToastSuccess, showDialogError } = AlertNotification();
     // const urlAPI = process.env.API_URL_USER;
-    const urlAPI = API_URL_USER
+    const urlAPI = "http://192.168.0.7:32768"
     const token = (useSelector(selectUserToken));
     const userName = (useSelector(selectUserName));
     const userId = (useSelector(selectUserId));
