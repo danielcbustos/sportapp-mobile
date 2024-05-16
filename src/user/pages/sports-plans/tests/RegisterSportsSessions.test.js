@@ -1,9 +1,7 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react-native";
-
 import { useRegisterSportsSessions } from "../hooks/useRegisterSportsSessions";
 import { RegisterSportsSessions } from "../pages/RegisterSportsSessions";
-RegisterSportsSessions;
 
 jest.mock("../hooks/useRegisterSportsSessions");
 
@@ -52,7 +50,6 @@ describe("RegisterSportsSessions component", () => {
     useRegisterSportsSessions.mockReturnValue({
       resumeStopwatch: mockResumeStopwatch,
     });
-
     const { getByText } = render(<RegisterSportsSessions />);
     fireEvent.press(getByText("Reanudar"));
   });

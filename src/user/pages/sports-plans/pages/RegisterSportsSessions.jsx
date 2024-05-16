@@ -5,6 +5,7 @@ import { GlobalStyles } from '../../../../styles/GlobalStyles';
 
 import { Button } from "react-native-paper";
 import { useRegisterSportsSessions } from '../hooks/useRegisterSportsSessions';
+import { AlertNotification } from '../../../../utils/AlertNotification';
 
 export const RegisterSportsSessions = ({ navigation }) => {
 
@@ -13,6 +14,7 @@ export const RegisterSportsSessions = ({ navigation }) => {
     const [running, setRunning] = useState(false);
     const intervalRef = useRef(null);
     const startTimeRef = useRef(0);
+    const { showToastSuccess, showToastError } = AlertNotification();
     let totalCalories = Math.round(0.3 * time);
     let randomFtp = Math.floor(Math.random() * (300 - 100 + 1)) + 100;
     const startStopwatch = () => {
@@ -50,6 +52,31 @@ export const RegisterSportsSessions = ({ navigation }) => {
 
         return `${hours}:${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
     };
+
+    useEffect(() => {
+        // istanbul ignore next
+        if (time > 0) {
+            if (time == 10 || time % 50 == 0) {
+                showToastSuccess(
+                    "¡Estas muy calmado!",
+                    "¡Aumenta 10 kg el peso!"
+                );
+
+            } else if (time == 22 || time % 65 == 0) {
+                showToastError(
+                    "¡Tus pulsaciones son demasiado altas!",
+                    "¡Realiza solo 6 repeticiones!"
+                );
+            } else if (time == 34 || time % 81 == 0) {
+
+                showToastError(
+                    "¡Tus pulsaciones aumentaron anormalmente!",
+                    "Disminuye 10 kg el peso"
+                );
+            }
+        }
+
+    }, [time]);
     return (
         <View style={GlobalStyles.sportApp}>
             <View style={{ flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', width: '100%' }}>
