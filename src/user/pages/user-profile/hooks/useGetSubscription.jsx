@@ -11,7 +11,7 @@ export const useGetSubscription = () => {
     const [getSubscriptionLoading, setGetSubscriptionLoading] = useState(true);
 
     // const urlAPI = process.env.API_URL_USER;
-    const urlAPI = "http://192.168.0.7:32770";
+    const urlAPI = API_URL_SERVICE;
 
     const fetchUserSubscription = async () => {
         console.log(`${urlAPI}/api/v1/subscription/${userId}`)

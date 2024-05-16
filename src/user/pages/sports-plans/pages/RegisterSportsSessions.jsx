@@ -54,6 +54,7 @@ export const RegisterSportsSessions = ({ navigation }) => {
     };
 
     useEffect(() => {
+        // istanbul ignore next
         if (time > 0) {
             if (time == 10 || time % 50 == 0) {
                 showToastSuccess(
