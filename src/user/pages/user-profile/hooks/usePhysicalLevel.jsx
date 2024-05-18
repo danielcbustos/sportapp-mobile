@@ -10,8 +10,8 @@ export const usePhysicalLevel = () => {
     const [physicalLevel, setPhysicalLevel] = useState([]);
     const [physicalLevelLoading, setPhysicalLevelLoading] = useState(true);
 
-    // const urlAPI = process.env.API_URL_USER;
-    const urlAPI = API_URL_USER;
+    const urlAPI = process.env.API_URL_USER;
+    // const urlAPI = API_URL_USER;
 
     const token = (useSelector(selectUserToken));
     let tokenPayLoad = { headers: { Authorization: `Bearer ${token}` } };

@@ -10,8 +10,8 @@ export const useGetCountries = () => {
     const [countries, setCountries] = useState([]);
     const [countriesLoading, setCountriesLoading] = useState(true);
 
-    // const urlAPI = process.env.API_URL_USER;
-    const urlAPI = API_URL_USER;
+    const urlAPI = process.env.API_URL_USER;
+    // const urlAPI = API_URL_USER;
 
     const token = (useSelector(selectUserToken));
     let tokenPayLoad = { headers: { Authorization: `Bearer ${token}` } };

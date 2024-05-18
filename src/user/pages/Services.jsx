@@ -5,8 +5,15 @@ import { GlobalStyles } from '../../styles/GlobalStyles';
 import { ALERT_TYPE, Dialog, Toast } from 'react-native-alert-notification';
 import { Text as CardText } from 'react-native-paper';
 import { Card } from 'react-native-paper';
+import { useGetSubscription } from './user-profile/hooks/useGetSubscription';
+import { Spineer } from '../../utils/Spineer';
 
 export const Services = ({ navigation }) => {
+    const { userSubscription, getSubscriptionLoading, fetchUserSubscription } = useGetSubscription();
+    useEffect(() => {
+        fetchUserSubscription();
+    }, []);
+
 
     return (
         <View style={GlobalStyles.sportApp}>
@@ -45,15 +52,17 @@ export const Services = ({ navigation }) => {
                         <Card.Cover style={GlobalStyles.cardCover} source={require("../../../assets/planes-alimenticios.png")} />
                     </Card>
                 </TouchableOpacity>
-
-                <TouchableOpacity  >
-                    <Card style={GlobalStyles.card}>
-                        <Card.Content>
-                            <CardText style={GlobalStyles.cardText} variant="bodyMedium">Deportologo</CardText>
-                        </Card.Content>
-                        <Card.Cover style={GlobalStyles.cardCover} source={require("../../../assets/deportologo.jpg")} />
-                    </Card>
-                </TouchableOpacity>
+                <Spineer isLoading={getSubscriptionLoading} />
+                {!getSubscriptionLoading && userSubscription.plan.name === 'Premium' && (
+                    <TouchableOpacity onPress={() => navigation.navigate('SportsSpecialistAvailability')} >
+                        <Card style={GlobalStyles.card}>
+                            <Card.Content>
+                                <CardText style={GlobalStyles.cardText} variant="bodyMedium">Deportologo</CardText>
+                            </Card.Content>
+                            <Card.Cover style={GlobalStyles.cardCover} source={require("../../../assets/deportologo.jpg")} />
+                        </Card>
+                    </TouchableOpacity>
+                )}
             </ScrollView>
         </View>
 

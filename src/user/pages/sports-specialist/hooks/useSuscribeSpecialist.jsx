@@ -6,28 +6,28 @@ import { API_URL_USER } from "@env";
 import { selectUserToken, selectUserId } from '../../../helpers/userSelectors';
 import { useSelector } from 'react-redux';
 
-export const useSuscribeEvents = (navigation) => {
+export const useSuscribeSpecialist = (navigation) => {
     const { showDialogError, showToastSuccess } = AlertNotification();
-    const [eventSuscription, setEventSuscription] = useState(false);
+    const [specialistSuscription, setSpecialistSuscription] = useState(false);
     const urlAPI = process.env.API_URL_USER;
     // const urlAPI = API_URL_USER
     const token = (useSelector(selectUserToken));
     let tokenPayLoad = { headers: { Authorization: `Bearer ${token}` } };
-    const suscribeEvent = async (event) => {
+    const suscribeSpecialist = async (specialist) => {
         axios
-            .post(`${urlAPI}/api/V1/EventSuscription`, event, tokenPayLoad)
+            .post(`${urlAPI}/api/V1/EventSuscription`, specialist, tokenPayLoad)
             .then((response) => {
                 if (response.data.suscribed) {
                     navigation.navigate('UserHome');
                     showToastSuccess(
-                        `Tu inscripcion en el evento ${event.name} fue exitosa `,
-                        "Puedes registrarte en mas eventos"
+                        `Tu agendamiento con el ${specialist.name} fue exitoso `,
+                        "Recuerda llegar 10 min anticipado"
                     );
                 } else {
 
                     showDialogError(
-                        `Ya estas registrado en el evento ${event.name} `,
-                        "Puedes registrarte en otros eventos"
+                        `Ya tienes agenda con el ${specialist.name} `,
+                        "Agenda otro día"
                     );
                 }
 
@@ -35,13 +35,13 @@ export const useSuscribeEvents = (navigation) => {
             })
             .catch((error) => {
                 showDialogError(
-                    `Problemas en tu inscripcion ${event.name} `,
+                    `Problemas en tu reserva con el ${specialist.name} `,
                     "Lo sentimos no pudimos hacerla , intentalo de nuevo mas tarde."
                 );
             });
     };
     return {
-        eventSuscription,
-        suscribeEvent
+        specialistSuscription,
+        suscribeSpecialist
     };
 }
