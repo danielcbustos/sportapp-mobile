@@ -10,11 +10,10 @@ export const useGetSubscription = () => {
     const [userSubscription, setUserSubscription] = useState();
     const [getSubscriptionLoading, setGetSubscriptionLoading] = useState(true);
 
-    // const urlAPI = process.env.API_URL_USER;
+    // const urlAPI = process.env.API_URL_SERVICE;
     const urlAPI = API_URL_SERVICE;
-
+    // const urlAPI = "http://192.168.0.7:32770";
     const fetchUserSubscription = async () => {
-        console.log(`${urlAPI}/api/v1/subscription/${userId}`)
         try {
             const response = await axios.get(`${urlAPI}/api/v1/subscription/${userId}`);
             setUserSubscription(response.data);

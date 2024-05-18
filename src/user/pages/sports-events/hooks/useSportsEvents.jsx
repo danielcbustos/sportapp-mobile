@@ -19,9 +19,7 @@ export const useSportEvents = () => {
             serviceTypes: ["93fc91b3-47dd-49e8-9589-01671491cc73"],
             startDateTime: selectedDate,
             endDateTime: selectedDate,
-
         };
-
         axios
             .post(`${urlAPI}/api/v1/productService/getFilteredList`, queryEvents)
             .then((response) => {
