@@ -6,8 +6,8 @@ const useEmailExists = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [emailExists, setEmailExists] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  // const urlAPI = process.env.API_URL_USER;
-  const urlAPI = API_URL_USER;
+  const urlAPI = process.env.API_URL_USER;
+  // const urlAPI = API_URL_USER;
 
   const validateEmail = async (email) => {
     setIsSubmitting(true);

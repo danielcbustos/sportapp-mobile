@@ -10,8 +10,8 @@ export const useUpdateMealProfile = () => {
     const [mealProfileLoading, setMetProfileLoading] = useState(false);
     const [mealProfileUpdated, setMealProfileUpdated] = useState(false);
     const { showToastSuccess, showToastError } = AlertNotification();
-    // const urlAPI = process.env.API_URL_USER;
-    const urlAPI = API_URL_USER;
+    const urlAPI = process.env.API_URL_USER;
+    // const urlAPI = API_URL_USER;
 
     const token = (useSelector(selectUserToken));
     let tokenPayLoad = { headers: { Authorization: `Bearer ${token}` } };

@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react'
 import { Button, StyleSheet, Text, TouchableOpacity, View, FlatList, ScrollView, ImageBackground } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -6,9 +7,16 @@ import { useSelector } from 'react-redux';
 import { selectUserId, selectUserName, selectUserLastName } from '../helpers/userSelectors';
 import { Text as CardText } from 'react-native-paper';
 import { Card } from 'react-native-paper';
+import { useGetSubscription } from './user-profile/hooks/useGetSubscription';
+import { Spineer } from '../../utils/Spineer';
 
 export const UserHome = ({ navigation }) => {
     const name = useSelector(selectUserName)
+    const { userSubscription, getSubscriptionLoading, fetchUserSubscription } = useGetSubscription();
+
+    useEffect(() => {
+        fetchUserSubscription();
+    }, []);
 
     return (
         <View style={GlobalStyles.sportApp}>
@@ -46,16 +54,17 @@ export const UserHome = ({ navigation }) => {
                         <Card.Cover style={GlobalStyles.cardCover} source={require("../../../assets/progreso.jpg")} />
                     </Card>
                 </TouchableOpacity>
-
-                <TouchableOpacity onPress={() => navigation.navigate('ExternalAppInformation')} >
-                    <Card style={GlobalStyles.card}>
-                        <Card.Content>
-                            <CardText style={GlobalStyles.cardText} variant="bodyMedium">Conectar con App Externa</CardText>
-                        </Card.Content>
-                        <Card.Cover style={GlobalStyles.cardCover} source={require("../../../assets/app-externa.png")} />
-                    </Card>
-                </TouchableOpacity>
-
+                <Spineer isLoading={getSubscriptionLoading} />
+                {!getSubscriptionLoading && userSubscription.plan.name !== 'Basic' && (
+                    <TouchableOpacity onPress={() => navigation.navigate('ExternalAppInformation')} >
+                        <Card style={GlobalStyles.card}>
+                            <Card.Content>
+                                <CardText style={GlobalStyles.cardText} variant="bodyMedium">Conectar con App Externa</CardText>
+                            </Card.Content>
+                            <Card.Cover style={GlobalStyles.cardCover} source={require("../../../assets/app-externa.png")} />
+                        </Card>
+                    </TouchableOpacity>
+                )}
             </ScrollView>
 
         </View >

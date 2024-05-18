@@ -10,8 +10,8 @@ export const useGetUserProfile = () => {
     const [userProfile, setUserProfile] = useState();
     const [getUserLoading, setGetUserLoading] = useState(true);
 
-    // const urlAPI = process.env.API_URL_USER;
-    const urlAPI = API_URL_USER;
+    const urlAPI = process.env.API_URL_USER;
+    // const urlAPI = API_URL_USER;
 
     const token = (useSelector(selectUserToken));
     let tokenPayLoad = { headers: { Authorization: `Bearer ${token}` } };
