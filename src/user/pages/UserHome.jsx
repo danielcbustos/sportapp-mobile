@@ -55,7 +55,7 @@ export const UserHome = ({ navigation }) => {
                     </Card>
                 </TouchableOpacity>
                 <Spineer isLoading={getSubscriptionLoading} />
-                {!getSubscriptionLoading && userSubscription.plan.name !== 'Basic' && (
+                {!getSubscriptionLoading && (userSubscription?.plan?.name === 'Premium' || userSubscription?.plan?.name === 'Intermediate') && (
                     <TouchableOpacity onPress={() => navigation.navigate('ExternalAppInformation')} >
                         <Card style={GlobalStyles.card}>
                             <Card.Content>

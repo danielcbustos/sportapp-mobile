@@ -53,7 +53,7 @@ export const Services = ({ navigation }) => {
                     </Card>
                 </TouchableOpacity>
                 <Spineer isLoading={getSubscriptionLoading} />
-                {!getSubscriptionLoading && userSubscription.plan.name === 'Premium' && (
+                {!getSubscriptionLoading && userSubscription?.plan?.name === 'Premium' && (
                     <TouchableOpacity onPress={() => navigation.navigate('SportsSpecialistAvailability')} >
                         <Card style={GlobalStyles.card}>
                             <Card.Content>
