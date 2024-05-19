@@ -16,7 +16,7 @@ export const useSportEvents = () => {
     const getEvents = async (selectedDate) => {
         setLoadEvents(true);
         const queryEvents = {
-            serviceTypes: ["93fc91b3-47dd-49e8-9589-01671491cc73"],
+            serviceTypes: ["93fc91b3-47dd-49e8-9589-01671491cc73", "ffcbaf64-3ffa-4b28-8dc7-838532ca0274"],
             startDateTime: selectedDate,
             endDateTime: selectedDate,
         };
